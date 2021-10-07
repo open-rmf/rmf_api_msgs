@@ -16,4 +16,4 @@ builtin_interfaces/Duration repeat_interval
 string task_type
 
 # Task arguments
-string args
+string task_description
