@@ -7,13 +7,9 @@
   <maintainer email="youling@openrobotics.org">You Liang</maintainer>
   <license>Apache License 2.0</license>
 
-  <exec_depend>ament_index_python</exec_depend>
-  <buildtool_depend>ament_cmake_python</buildtool_depend>
-
-  <!-- <exec_depend>python3-json</exec_depend> -->
-  <!-- TODO json validation test script -->
+  <depend>nlohmann-json3-dev</depend>
 
   <export>
-    <build_type>ament_python</build_type>
+    <build_type>cmake</build_type>
   </export>
 </package>

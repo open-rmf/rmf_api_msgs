@@ -119,6 +119,7 @@
           "type": "string",
           "enum": ["uninitialized", "info", "warning", "error"]
         },
+        "unix_millis_time": { "type": "integer" },
         "text": {
           "description": "The text of the log entry",
           "type": "string"
