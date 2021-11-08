@@ -81,6 +81,7 @@
       "description": "The current state of an event",
       "type": "object",
       "properties": {
+        "id": { "$ref": "#/$defs/id" },
         "status": {
           "description": "A simple token representing how the task is proceeding",
           "type": "string",
