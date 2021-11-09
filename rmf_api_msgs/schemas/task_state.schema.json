@@ -5,6 +5,8 @@
   "description": "The state of a task",
   "type": "object",
   "properties": {
+    "booking": { "$ref": "#/$defs/booking" },
+    "header": { "$ref": "#/$defs/header" },
     "completed": {
       "description": "An array of the completed phases of this task",
       "type": "array",
@@ -62,6 +64,25 @@
         }
       }
     },
+    "booking": {
+      "description": "Information about how a task was booked",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The unique identifier for this task",
+          "type": "string"
+        },
+        "unix_millis_earliest_start_time": { "type": "integer" },
+        "priority": {
+          "description": "Priority information about this task",
+          "anyOf": [
+            { "type": "object" },
+            { "type": "string" }
+          ]
+        },
+        "automatic": { "type": "boolean" }
+      }
+    },
     "id": {
       "type": "integer",
       "minimum": 0
@@ -70,7 +91,8 @@
       "description": "Detailed information about a task, phase, or event",
       "anyOf": [
         { "type": "object" },
-        { "type": "string" }
+        { "type": "string" },
+        { "type": "array" }
       ]
     },
     "event_array": {
