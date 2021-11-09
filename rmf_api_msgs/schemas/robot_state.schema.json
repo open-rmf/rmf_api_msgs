@@ -5,6 +5,7 @@
   "description": "The state of a robot",
   "type": "object",
   "properties": {
+    "name": { "type": "string" },
     "status": {
       "description": "A simple token representing the status of the robot",
       "type": "string",
@@ -19,12 +20,12 @@
       "maximum": 1.0
     },
     "issues": {
-      "description": "A list of issues with the robot that operators need to address",
+      "description": "(list:replace) A list of issues with the robot that operators need to address",
       "type": "array",
       "items": { "$ref": "#/$defs/issue" }
     },
     "log": {
-      "description": "A log of notable events pertaining to the robot",
+      "description": "(list:append) A log of notable events pertaining to the robot",
       "type": "array",
       "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/log_entry/0.1"}
     }

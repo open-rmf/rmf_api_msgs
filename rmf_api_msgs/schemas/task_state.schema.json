@@ -8,13 +8,13 @@
     "booking": { "$ref": "#/$defs/booking" },
     "header": { "$ref": "#/$defs/header" },
     "completed": {
-      "description": "An array of the completed phases of this task",
+      "description": "(list:append) An array of the completed phases of this task",
       "type": "array",
       "items": { "$ref": "#/$defs/completed_phase" }
     },
     "active": { "$ref": "#/$defs/phase" },
     "pending": {
-      "description": "An array of the pending phases of this task",
+      "description": "(list:replace) An array of the pending phases of this task",
       "type": "array",
       "items": { "$ref": "#/$defs/pending_phase" }
     }
@@ -118,12 +118,12 @@
           "type": "string"
         },
         "log": {
-          "description": "Logged information pertaining to this event",
+          "description": "(list:append) Logged information pertaining to this event",
           "type": "array",
           "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/log_entry/0.1" }
         },
         "deps": {
-          "description": "This event may depend on other events. This array contains the IDs of those other event dependencies.",
+          "description": "(list:replace) This event may depend on other events. This array contains the IDs of those other event dependencies.",
           "type": "array",
           "items": {
             "description": "The IDs of events that this event depends on. Event IDs are isolated within the scope of this task phase.",

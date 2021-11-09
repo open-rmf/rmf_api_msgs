@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/fleet_state/0.1",
+  "title": "Robot State",
+  "description": "The state of a fleet",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "robots": {
+      "type": "array",
+      "items": {
+        "type": { "$ref": "https://open-rmf.org/rmf_api_msgs/robot_state/0.1" }
+      }
+    }
+  }
+}
