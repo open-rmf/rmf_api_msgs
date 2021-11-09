@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/task_state/0.1",
+  "title": "Task State",
+  "description": "The state of a task",
+  "type": "object",
+  "properties": {
+    "booking": { "$ref": "#/$defs/booking" },
+    "header": { "$ref": "#/$defs/header" },
+    "completed": {
+      "description": "An array of the completed phases of this task",
+      "type": "array",
+      "items": { "$ref": "#/$defs/completed_phase" }
+    },
+    "active": { "$ref": "#/$defs/phase" },
+    "pending": {
+      "description": "An array of the pending phases of this task",
+      "type": "array",
+      "items": { "$ref": "#/$defs/pending_phase" }
+    }
+  },
+  "$defs": {
+    "completed_phase": {
+      "description": "Information about a phase that has completed",
+      "type": "object",
+      "properties": {
+        "phase": { "$ref": "#/$defs/phase" },
+        "unix_millis_start_time": { "type": "integer" },
+        "unix_millis_finish_time": { "type": "integer" }
+      }
+    },
+    "phase": {
+      "description": "Information about a phase",
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "header": { "$ref": "#/$defs/header" },
+        "final_event_id": { "$ref": "#/$defs/id" },
+        "events": { "$ref": "#/$defs/event_array" }
+      }
+    },
+    "pending_phase": {
+      "description": "Information about a phase that has not started yet",
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "header": { "$ref": "#/$defs/header" },
+        "will_be_skipped": { "type": "boolean" }
+      }
+    },
+    "header": {
+      "description": "High level information about a task or a phase with a task",
+      "type": "object",
+      "properties": {
+        "category": {
+          "description": "The category of this task or phase",
+          "type": "string"
+        },
+        "detail": { "$ref": "#/$defs/detail" },
+        "estimate_millis": {
+          "description": "An estimate, in milliseconds, of how long the subject will take to complete",
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "booking": {
+      "description": "Information about how a task was booked",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "The unique identifier for this task",
+          "type": "string"
+        },
+        "unix_millis_earliest_start_time": { "type": "integer" },
+        "priority": {
+          "description": "Priority information about this task",
+          "anyOf": [
+            { "type": "object" },
+            { "type": "string" }
+          ]
+        },
+        "automatic": { "type": "boolean" }
+      }
+    },
+    "id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "detail": {
+      "description": "Detailed information about a task, phase, or event",
+      "anyOf": [
+        { "type": "object" },
+        { "type": "string" },
+        { "type": "array" }
+      ]
+    },
+    "event_array": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/event_state" }
+    },
+    "event_state": {
+      "description": "The current state of an event",
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "status": {
+          "description": "A simple token representing how the task is proceeding",
+          "type": "string",
+          "enum": ["uninitialized", "blocked", "error", "failed", "standby", "underway", "delayed", "skipped", "canceled", "killed", "completed"]
+        },
+        "name": {
+          "description": "The brief name of the event",
+          "type": "string"
+        },
+        "detail": {
+          "description": "Detailed information about the event",
+          "type": "string"
+        },
+        "log": {
+          "description": "Logged information pertaining to this event",
+          "type": "array",
+          "items": { "$ref": "#/$defs/log_entry" }
+        },
+        "deps": {
+          "description": "This event may depend on other events. This array contains the IDs of those other event dependencies.",
+          "type": "array",
+          "items": {
+            "description": "The IDs of events that this event depends on. Event IDs are isolated within the scope of this task phase.",
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "log_entry": {
+      "description": "An entry in the log of an event",
+      "type": "object",
+      "properties": {
+        "tier": {
+          "description": "The importance level of the log entry",
+          "type": "string",
+          "enum": ["uninitialized", "info", "warning", "error"]
+        },
+        "unix_millis_time": { "type": "integer" },
+        "text": {
+          "description": "The text of the log entry",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
