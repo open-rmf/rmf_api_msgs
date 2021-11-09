@@ -12,7 +12,16 @@
   "keywords": [
     "rmf_api_msgs"
   ],
-  "author": "youliang",
+  "contributors": [
+    {
+      "name": "Grey",
+      "email": "grey@openrobotics.org"
+    },
+    {
+      "name": "You Liang",
+      "email": "youliang@openrobotics.org"
+    }
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/open-rmf/rmf_api_msgs/issues"
