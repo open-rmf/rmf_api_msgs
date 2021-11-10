@@ -6,7 +6,9 @@
   "type": "object",
   "properties": {
     "booking": { "$ref": "#/$defs/booking" },
-    "header": { "$ref": "#/$defs/header" },
+    "category": { "$ref": "#/$defs/category" },
+    "detail": { "$ref": "#/$defs/detail" },
+    "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
     "completed": {
       "description": "(list:append) An array of the completed phases of this task",
       "type": "array",
@@ -34,7 +36,9 @@
       "type": "object",
       "properties": {
         "id": { "$ref": "#/$defs/id" },
-        "header": { "$ref": "#/$defs/header" },
+        "category": { "$ref": "#/$defs/category" },
+        "detail": { "$ref": "#/$defs/detail" },
+        "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
         "final_event_id": { "$ref": "#/$defs/id" },
         "events": { "$ref": "#/$defs/event_array" }
       }
@@ -44,24 +48,10 @@
       "type": "object",
       "properties": {
         "id": { "$ref": "#/$defs/id" },
-        "header": { "$ref": "#/$defs/header" },
-        "will_be_skipped": { "type": "boolean" }
-      }
-    },
-    "header": {
-      "description": "High level information about a task or a phase with a task",
-      "type": "object",
-      "properties": {
-        "category": {
-          "description": "The category of this task or phase",
-          "type": "string"
-        },
+        "category": { "$ref": "#/$defs/category" },
         "detail": { "$ref": "#/$defs/detail" },
-        "estimate_millis": {
-          "description": "An estimate, in milliseconds, of how long the subject will take to complete",
-          "type": "integer",
-          "minimum": 0
-        }
+        "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
+        "will_be_skipped": { "type": "boolean" }
       }
     },
     "booking": {
@@ -87,6 +77,10 @@
       "type": "integer",
       "minimum": 0
     },
+    "category": {
+      "description": "The category of this task or phase",
+      "type": "string"
+    },
     "detail": {
       "description": "Detailed information about a task, phase, or event",
       "anyOf": [
@@ -94,6 +88,11 @@
         { "type": "array" },
         { "type": "string" }
       ]
+    },
+    "estimate_millis": {
+      "description": "An estimate, in milliseconds, of how long the subject will take to complete",
+      "type": "integer",
+      "minimum": 0
     },
     "event_array": {
       "type": "array",
