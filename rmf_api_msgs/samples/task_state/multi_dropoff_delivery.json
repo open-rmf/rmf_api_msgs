@@ -5,12 +5,56 @@
     "priority": "none",
     "automatic": false
   },
-  "header": {
-    "category": "Multi-Delivery",
-    "detail": [
-      {
+  "category": "Multi-Delivery",
+  "detail": [
+    {
+      "category": "Pick Up",
+      "params": {
+        "location": "Kitchen",
+        "items": [
+          {
+            "type": "soda",
+            "quantity": 1
+          },
+          {
+            "type": "water",
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "Drop Off",
+      "params": {
+        "location": "room_203",
+        "items": [
+          {
+            "type": "soda",
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "Drop Off",
+      "params": {
+        "location": "room_521",
+        "items": [
+          {
+            "type": "water",
+            "quantity": 1
+          }
+        ]
+      }
+    }
+  ],
+  "estimate_millis": 2000000,
+  "completed": [
+    {
+      "phase": {
+        "id": 1,
         "category": "Pick Up",
-        "params": {
+        "detail": {
           "location": "Kitchen",
           "items": [
             {
@@ -22,56 +66,8 @@
               "quantity": 1
             }
           ]
-        }
-      },
-      {
-        "category": "Drop Off",
-        "params": {
-          "location": "room_203",
-          "items": [
-            {
-              "type": "soda",
-              "quantity": 1
-            }
-          ]
-        }
-      },
-      {
-        "category": "Drop Off",
-        "params": {
-          "location": "room_521",
-          "items": [
-            {
-              "type": "water",
-              "quantity": 1
-            }
-          ]
-        }
-      }
-    ],
-    "estimate_millis": 2000000
-  },
-  "completed": [
-    {
-      "phase": {
-        "id": 1,
-        "header": {
-          "category": "Pick Up",
-          "detail": {
-            "location": "Kitchen",
-            "items": [
-              {
-                "type": "soda",
-                "quantity": 1
-              },
-              {
-                "type": "water",
-                "quantity": 1
-              }
-            ]
-          },
-          "estimate_millis": 600000
         },
+        "estimate_millis": 600000,
         "final_event_id": 0,
         "events": [
           {
@@ -140,19 +136,17 @@
   ],
   "active": {
     "id": 2,
-    "header": {
-      "category": "Drop Off",
-      "detail": {
-        "location": "room_203",
-        "items": [
-          {
-            "type": "soda",
-            "quantity": 1
-          }
-        ]
-      },
-      "estimate_millis": 720000
+    "category": "Drop Off",
+    "detail": {
+      "location": "room_203",
+      "items": [
+        {
+          "type": "soda",
+          "quantity": 1
+        }
+      ]
     },
+    "estimate_millis": 720000,
     "final_event_id": 0,
     "events": [
       {
@@ -195,19 +189,17 @@
   "pending": [
     {
       "id": 3,
-      "header": {
-        "category": "Drop Off",
-        "detail": {
-          "location": "room_521",
-          "items": [
-            {
-              "type": "water",
-              "quantity": 1
-            }
-          ]
-        },
-        "estimate_millis": 680000
+      "category": "Drop Off",
+      "detail": {
+        "location": "room_521",
+        "items": [
+          {
+            "type": "water",
+            "quantity": 1
+          }
+        ]
       },
+      "estimate_millis": 680000,
       "will_be_skipped": false
     }
   ]
