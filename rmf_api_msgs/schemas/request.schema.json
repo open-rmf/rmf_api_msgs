@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/request/0.1",
+  "title": "Request",
+  "description": "An RMF-compliant request message",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/activity_discovery_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/task_discovery_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/refresh_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/interrupt_task_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/cancel_task_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/resume_task_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/kill_task_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/skip_phase_request/0.1" },
+    { "$ref": "https://open-rmf.org/rmf_api_msgs/rewind_task_request/0.1" }
+  ]
+}

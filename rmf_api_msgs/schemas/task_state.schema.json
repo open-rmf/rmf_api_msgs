@@ -21,6 +21,7 @@
       "items": { "$ref": "#/$defs/pending_phase" }
     }
   },
+  "required": ["booking"],
   "$defs": {
     "completed_phase": {
       "description": "Information about a phase that has completed",
@@ -29,7 +30,8 @@
         "phase": { "$ref": "#/$defs/phase" },
         "unix_millis_start_time": { "type": "integer" },
         "unix_millis_finish_time": { "type": "integer" }
-      }
+      },
+      "required": ["phase", "unix_millis_start_time", "unix_millis_finish_time"]
     },
     "phase": {
       "description": "Information about a phase",
@@ -41,7 +43,8 @@
         "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
         "final_event_id": { "$ref": "#/$defs/id" },
         "events": { "$ref": "#/$defs/event_array" }
-      }
+      },
+      "required": ["id"]
     },
     "pending_phase": {
       "description": "Information about a phase that has not started yet",
@@ -52,7 +55,8 @@
         "detail": { "$ref": "#/$defs/detail" },
         "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
         "will_be_skipped": { "type": "boolean" }
-      }
+      },
+      "required": ["id"]
     },
     "booking": {
       "description": "Information about how a task was booked",
@@ -71,7 +75,8 @@
           ]
         },
         "automatic": { "type": "boolean" }
-      }
+      },
+      "required": ["id"]
     },
     "id": {
       "type": "integer",
@@ -130,7 +135,8 @@
             "minimum": 0
           }
         }
-      }
+      },
+      "required": ["id"]
     }
   }
 }

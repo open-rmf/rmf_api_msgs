@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/resume_task_request/0.1",
+  "title": "Task Resume Request",
+  "description": "Ask for a task to be resumed. This can be used on tasks that have been interrupted.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Indicate that this is a task resuming request",
+      "type": "string",
+      "constant": "resume_task_request"
+    },
+    "id": {
+      "description": "Specify the task ID to resume",
+      "type": "string"
+    }
+  },
+  "required": ["type", "id"]
+}

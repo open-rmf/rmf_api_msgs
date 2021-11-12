@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/activity_discovery_update/0.1",
+  "title": "Activity Discovery",
+  "description": "Discovery information about what kinds of activities a fleet supports",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Indicate that this is an activity discovery update",
+      "type": "string",
+      "constant": "activity_discovery_update"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "fleet_name": {
+          "description": "Name of the fleet that supports these activities",
+          "type": "string"
+        },
+        "activities": {
+          "description": "(list:replace) List of activities that the fleet supports",
+          "type": "array",
+          "items": { "$ref": "#/$defs/activity" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "activity": {
+      "description": "Information about an activity",
+      "type": "object",
+      "properties": {
+        "category": {
+          "description": "The category of this activity. There must not be any duplicate activity categories per fleet.",
+          "type": "string"
+        },
+        "detail": {
+          "description": "Details about the behavior of the activity.",
+          "type": "string"
+        },
+        "description_schema": {
+          "description": "The schema for this activity description",
+          "type": "object"
+        }
+      },
+      "required": ["category", "detail", "schema"]
+    }
+  }
+}

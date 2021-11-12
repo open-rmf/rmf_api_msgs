@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/cancel_task_request/0.1",
+  "title": "Cancel Task Request",
+  "description": "Ask for a task to be canceled.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Indicate that this is a task cancellation request",
+      "type": "string",
+      "constant": "cancel_task_request"
+    },
+    "id": {
+      "description": "Specify the task ID to cancel",
+      "type": "string"
+    }
+  },
+  "required": ["type", "id"]
+}

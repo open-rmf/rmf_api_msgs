@@ -11,6 +11,10 @@
       "type": "string",
       "enum": ["uninitialized", "offline", "idle", "charging", "working", "error"]
     },
+    "task_id": {
+      "description": "The ID of the task this robot is currently working on. Empty string if the robot is not working on a task.",
+      "type": "string"
+    },
     "unix_millis_time": { "type": "integer" },
     "location": { "$ref": "https://open-rmf.org/rmf_api_msgs/location_2D/0.1" },
     "battery": {

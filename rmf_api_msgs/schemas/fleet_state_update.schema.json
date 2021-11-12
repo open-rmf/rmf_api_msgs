@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/fleet_state_update/0.1",
+  "title": "Fleet State Update",
+  "description": "Update for the state of a fleet",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Indicate that this is a fleet state update",
+      "type": "string",
+      "constant": "fleet_state_update"
+    },
+    "behavior": {
+      "description": "Indicate if this is an initial state or an update to a previous state. If this field is left out, assume the behavior is an update. Then the behavior is init, then (list:append) fields should be cleared and replaced with the new data instead of appended.",
+      "type": "string",
+      "enum": ["init", "update"]
+    },
+    "data": {
+      "$ref": "https://open-rmf.org/rmf_api_msgs/fleet_state/0.1"
+    }
+  },
+  "required": ["type", "data"]
+}

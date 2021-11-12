@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/compose_task_description/0.1",
+  "title": "Compose Task Description",
+  "description": "Compose a task description based on activities that are supported by fleets. When supported by fleets, this can be used as a task description for task_request.",
+  "type": "object",
+  "properties": {
+    "category": {
+      "description": "Indicate that this is a composed task description",
+      "type": "string",
+      "constant": "compose_task"
+    },
+    "phases": {
+      "description": "List the phases of the task in the order that they should be performed.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "activity": { "$ref": "#/$defs/activity_description" },
+          "on_cancel": {
+            "description": "A list of activities to perform if the task is canceled during this phase (each activity is given its own phase which can be skipped but not canceled).",
+            "type": "array",
+            "items": { "$ref": "#/$defs/activity_description" }
+          }
+        },
+        "required": ["activity"]
+      }
+    }
+  },
+  "required": ["category", "phases"],
+  "$defs": {
+    "activity_description": {
+      "description": "Describe the activity of the phase. This must match an activity description supported by one of the fleets. If there should be multiple activities within a phase, then use a Sequence activity.",
+      "type": "object",
+      "properties": {
+        "category": {
+          "description": "The category of this phase's activity.",
+          "type": "string"
+        }
+      },
+      "required": ["category"]
+    }
+  }
+}
