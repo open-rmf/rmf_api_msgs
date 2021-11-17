@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-rmf.org/rmf_api_msgs/update/0.1",
   "title": "Update",
-  "description": "An RMF-compliant update message",
+  "description": "An RMF-compliant websocket update message",
   "type": "object",
   "oneOf": [
     { "$ref": "https://open-rmf.org/rmf_api_msgs/fleet_state_update/0.1" },

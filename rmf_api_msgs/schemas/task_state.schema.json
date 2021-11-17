@@ -42,7 +42,12 @@
         "detail": { "$ref": "#/$defs/detail" },
         "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
         "final_event_id": { "$ref": "#/$defs/id" },
-        "events": { "$ref": "#/$defs/event_array" }
+        "events": { "$ref": "#/$defs/event_array" },
+        "interrupters": {
+          "description": "(list:replace) Information about the currently active interruption requests",
+          "type": "array",
+          "items": { "$ref": "#/$defs/interrupter" }
+        }
       },
       "required": ["id"]
     },
@@ -137,6 +142,17 @@
         }
       },
       "required": ["id"]
+    },
+    "interruptions": {
+      "description": "A dictionary of interruptions that have been applied to this task. The key (field name) is the unique token of the interruption request.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://open-rmf.org/rmf_api_msgs/task_interruption/0.1"
+      }
+    },
+    "cancellation": {
+      "description": "If the task was cancelled, this will describe information about the request.",
+      "$ref": "https://open-rmf.org/rmf_api_msgs/task_cancellation/0.1"
     }
   }
 }

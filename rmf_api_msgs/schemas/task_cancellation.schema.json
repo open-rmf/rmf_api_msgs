@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/task_cancellation/0.1",
+  "title": "Task Cancellation Information",
+  "type": "object",
+  "properties": {
+    "unix_millis_request_time": {
+      "description": "The time that the interruption request arrived",
+      "type": "integer"
+    },
+    "request": { "$ref": "cancel_task_request" }
+  }
+}

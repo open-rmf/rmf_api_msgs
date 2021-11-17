@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/resume_task_request/0.1",
+  "title": "Task Resume Request",
+  "description": "This can be used to discard task interruption requests. When all interruption requests for a task are discarded, the task will resume.",
+  "oneOf": [
+    { "$ref": "#/$defs/for_labels" },
+    { "$ref": "#/$defs/for_tokens" },
+    { "$ref": "#/$defs/for_tasks" }
+  ],
+  "$defs": {
+    "resume_task_request_type": {
+      "description": "Indicate that this is a task resuming request",
+      "type": "string",
+      "constant": "resume_task_request"
+    },
+    "labels_list": {
+      "description": "Labels describing this request",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "for_labels": {
+      "type": "object",
+      "properties": {
+        "type": { "$ref": "#/$defs/resume_task_request_type" },
+        "labels": { "$ref": "#/$defs/labels_list" },
+        "for_labels": {
+          "description": "A list of interruption request labels. Any interruption requests which contain all of these labels will be discarded.",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["type", "for_labels"]
+    },
+    "for_tokens": {
+      "type": "object",
+      "properties": {
+        "type": { "$ref": "#/$defs/resume_task_request_type" },
+        "labels": { "$ref": "#/$defs/labels_list" },
+        "for_tokens": {
+          "description": "A list of unique tokens of interruption requests which should be resumed. The interruption request of each token will be discarded.",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["type", "for_tokens"]
+    },
+    "for_tasks": {
+      "type": "object",
+      "properties": {
+        "type": { "$ref": "#/$defs/resume_task_request_type" },
+        "labels": { "$ref": "#/$defs/labels_list" },
+        "for_tasks": {
+          "description": "Specify task IDs of the tasks to resume. All interruption requests on these tasks will be discarded.",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["type", "for_tasks"]
+    }
+  }
+}

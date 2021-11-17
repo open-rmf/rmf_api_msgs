@@ -10,10 +10,17 @@
       "type": "string",
       "constant": "interrupt_task_request"
     },
-    "id": {
+    "task_id": {
       "description": "Specify the task ID to interrupt",
       "type": "string"
+    },
+    "labels": {
+      "description": "Labels to describe the purpose of the interruption",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
-  "required": ["type", "id"]
+  "required": ["type", "task_id"]
 }

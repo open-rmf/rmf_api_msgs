@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/interrupt_task_response/0.1",
+  "title": "Task Interruption Response",
+  "description": "Response to a request for a task to be interrupted",
+  "type": "object",
+  "oneOf": [
+    {
+      "properties": {
+        "token": {
+          "description": "A unique token for the cancellation request. Use this in a resume_task_request to cancel this specific interruption request.",
+          "type": "string"
+        }
+      },
+      "required": "token"
+    },
+    {
+      "properties": {
+        "error": {
+          "description": "An error message explaining why the interruption failed.",
+          "type": "string"
+        }
+      },
+      "required": "error"
+    }
+  ],
+  "required": ["type"]
+}
