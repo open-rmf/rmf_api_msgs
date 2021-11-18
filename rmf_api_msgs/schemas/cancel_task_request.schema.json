@@ -10,7 +10,7 @@
       "type": "string",
       "constant": "cancel_task_request"
     },
-    "id": {
+    "task_id": {
       "description": "Specify the task ID to cancel",
       "type": "string"
     }

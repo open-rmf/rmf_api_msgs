@@ -19,6 +19,17 @@
       "description": "(list:replace) An array of the pending phases of this task",
       "type": "array",
       "items": { "$ref": "#/$defs/pending_phase" }
+    },
+    "interruptions": {
+      "description": "A dictionary of interruptions that have been applied to this task. The key (field name) is the unique token of the interruption request.",
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "https://open-rmf.org/rmf_api_msgs/task_interruption/0.1"
+      }
+    },
+    "cancellation": {
+      "description": "If the task was cancelled, this will describe information about the request.",
+      "$ref": "https://open-rmf.org/rmf_api_msgs/task_cancellation/0.1"
     }
   },
   "required": ["booking"],
@@ -142,17 +153,6 @@
         }
       },
       "required": ["id"]
-    },
-    "interruptions": {
-      "description": "A dictionary of interruptions that have been applied to this task. The key (field name) is the unique token of the interruption request.",
-      "type": "object",
-      "additionalProperties": {
-        "$ref": "https://open-rmf.org/rmf_api_msgs/task_interruption/0.1"
-      }
-    },
-    "cancellation": {
-      "description": "If the task was cancelled, this will describe information about the request.",
-      "$ref": "https://open-rmf.org/rmf_api_msgs/task_cancellation/0.1"
     }
   }
 }
