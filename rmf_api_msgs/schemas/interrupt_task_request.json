@@ -17,9 +17,7 @@
     "labels": {
       "description": "Labels to describe the purpose of the interruption",
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": { "type": "string" }
     }
   },
   "required": ["type", "task_id"]

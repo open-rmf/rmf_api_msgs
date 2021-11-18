@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/rewind_task_response/0.1",
+  "title": "Task Rewind Response",
+  "description": "Response to a request to rewind a task",
+  "type": "object",
+  "properties": {
+    "success": {
+      "description": "True if the request was successful, otherwise false.",
+      "type": "boolean"
+    },
+    "error": {
+      "description": "If the request failed, this will explain why",
+      "type": "string"
+    }
+  },
+  "required": ["success"]
+}

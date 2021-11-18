@@ -8,20 +8,30 @@
     "booking": { "$ref": "#/$defs/booking" },
     "category": { "$ref": "#/$defs/category" },
     "detail": { "$ref": "#/$defs/detail" },
+    "unix_millis_start_time": { "type": "integer" },
+    "unix_millis_finish_time": { "type": "integer" },
     "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
-    "completed": {
-      "description": "(list:append) An array of the completed phases of this task",
-      "type": "array",
-      "items": { "$ref": "#/$defs/completed_phase" }
+    "phases": {
+      "description": "A dictionary of the states of the phases of the task. The keys (property names) are phase IDs, which are integers.",
+      "type": "object",
+      "additionalProperties": { "$ref": "#/$defs/phase" }
     },
-    "active": { "$ref": "#/$defs/phase" },
-    "pending": {
-      "description": "(list:replace) An array of the pending phases of this task",
+    "completed": {
+      "description": "An array of the IDs of completed phases of this task",
       "type": "array",
-      "items": { "$ref": "#/$defs/pending_phase" }
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "active": {
+      "description": "The ID of the active phase for this task",
+      "$ref": "#/$defs/id"
+    },
+    "pending": {
+      "description": "An array of the pending phases of this task",
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" }
     },
     "interruptions": {
-      "description": "A dictionary of interruptions that have been applied to this task. The key (field name) is the unique token of the interruption request.",
+      "description": "A dictionary of interruptions that have been applied to this task. The keys (property names) are the unique token of the interruption request.",
       "type": "object",
       "additionalProperties": {
         "$ref": "https://open-rmf.org/rmf_api_msgs/task_interruption/0.1"
@@ -29,21 +39,39 @@
     },
     "cancellation": {
       "description": "If the task was cancelled, this will describe information about the request.",
-      "$ref": "https://open-rmf.org/rmf_api_msgs/task_cancellation/0.1"
+      "type": "object",
+      "properties": {
+        "unix_millis_request_time": {
+          "description": "The time that the cancellation request arrived",
+          "type": "integer"
+        },
+        "labels": {
+          "description": "Labels to describe the cancel request",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["unix_millis_request_time", "labels"]
+    },
+    "killed": {
+      "description": "If the task was killed, this will describe information about the request.",
+      "type": "object",
+      "properties": {
+        "unix_millis_request_time": {
+          "description": "The time that the cancellation request arrived",
+          "type": "integer"
+        },
+        "labels": {
+          "description": "Labels to describe the kill request",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["unix_millis_request_time", "labels"]
     }
   },
   "required": ["booking"],
   "$defs": {
-    "completed_phase": {
-      "description": "Information about a phase that has completed",
-      "type": "object",
-      "properties": {
-        "phase": { "$ref": "#/$defs/phase" },
-        "unix_millis_start_time": { "type": "integer" },
-        "unix_millis_finish_time": { "type": "integer" }
-      },
-      "required": ["phase", "unix_millis_start_time", "unix_millis_finish_time"]
-    },
     "phase": {
       "description": "Information about a phase",
       "type": "object",
@@ -53,24 +81,16 @@
         "detail": { "$ref": "#/$defs/detail" },
         "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
         "final_event_id": { "$ref": "#/$defs/id" },
-        "events": { "$ref": "#/$defs/event_array" },
-        "interrupters": {
-          "description": "(list:replace) Information about the currently active interruption requests",
-          "type": "array",
-          "items": { "$ref": "#/$defs/interrupter" }
+        "events": {
+          "description": "A dictionary of events for this phase. The keys (property names) are the event IDs, which are integers.",
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/event_state" }
+        },
+        "skip_requests": {
+          "description": "Information about any skip requests that have been received",
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/skip_phase_request" }
         }
-      },
-      "required": ["id"]
-    },
-    "pending_phase": {
-      "description": "Information about a phase that has not started yet",
-      "type": "object",
-      "properties": {
-        "id": { "$ref": "#/$defs/id" },
-        "category": { "$ref": "#/$defs/category" },
-        "detail": { "$ref": "#/$defs/detail" },
-        "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
-        "will_be_skipped": { "type": "boolean" }
       },
       "required": ["id"]
     },
@@ -90,7 +110,11 @@
             { "type": "string" }
           ]
         },
-        "automatic": { "type": "boolean" }
+        "labels": {
+          "description": "Information about how and why this task was booked",
+          "type": "array",
+          "items": { "type": "string" }
+        }
       },
       "required": ["id"]
     },
@@ -115,10 +139,6 @@
       "type": "integer",
       "minimum": 0
     },
-    "event_array": {
-      "type": "array",
-      "items": { "$ref": "#/$defs/event_state" }
-    },
     "event_state": {
       "description": "The current state of an event",
       "type": "object",
@@ -137,13 +157,8 @@
           "description": "Detailed information about the event",
           "type": "string"
         },
-        "log": {
-          "description": "(list:append) Logged information pertaining to this event",
-          "type": "array",
-          "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/log_entry/0.1" }
-        },
         "deps": {
-          "description": "(list:replace) This event may depend on other events. This array contains the IDs of those other event dependencies.",
+          "description": "This event may depend on other events. This array contains the IDs of those other event dependencies.",
           "type": "array",
           "items": {
             "description": "The IDs of events that this event depends on. Event IDs are isolated within the scope of this task phase.",
@@ -153,6 +168,70 @@
         }
       },
       "required": ["id"]
+    },
+    "interruption": {
+      "description": "Task interruption information",
+      "type": "object",
+      "properties": {
+        "unix_millis_request_time": {
+          "description": "The time that the interruption request arrived",
+          "type": "integer"
+        },
+        "labels": {
+          "description": "Labels to describe the purpose of the interruption",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "resumed_by": {
+          "description": "Information about the resume request that ended this interruption. This field will be missing if the interruption is still active.",
+          "type": "object",
+          "properties": {
+            "unix_millis_request_time": {
+              "description": "The time that the resume request arrived",
+              "type": "integer"
+            },
+            "labels": {
+              "description": "Labels to describe the resume request",
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["unix_millis_resume_time", "labels"]
+        }
+      },
+      "required": ["unix_millis_request_time", "token", "labels"]
+    },
+    "skip_phase_request": {
+      "description": "Information about a request to skip a phase",
+      "type": "object",
+      "properties": {
+        "unix_millis_request_time": {
+          "description": "The time that the skip request arrived",
+          "type": "integer"
+        },
+        "labels": {
+          "description": "Labels to describe the purpose of the skip request",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "undo": {
+          "description": "Information about an undo skip request that applied to this request",
+          "type": "object",
+          "properties": {
+            "unix_millis_request_time": {
+              "description": "The time that the undo skip request arrived",
+              "type": "integer"
+            },
+            "labels": {
+              "description": "Labels to describe the undo skip request",
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "required": ["unix_millis_request_time", "labels"]
+        }
+      },
+      "required": ["unix_millis_request_time", "labels"]
     }
   }
 }

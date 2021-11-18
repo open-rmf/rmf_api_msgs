@@ -1,15 +1,15 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/interrupt_task_response/0.1",
-  "title": "Task Interruption Response",
-  "description": "Response to a request for a task to be interrupted",
+  "$id": "https://open-rmf.org/rmf_api_msgs/skip_phase_response/0.1",
+  "title": "Skip Phase Response",
+  "description": "Response to a request for a phase to be skipped",
   "type": "object",
   "oneOf": [
     {
       "properties": {
         "success": { "$ref": "#/$defs/success" },
         "token": {
-          "description": "A token for the cancellation request. This token value is unique within this task_id. Use this in a resume_task_request to cancel this specific interruption request.",
+          "description": "A token for the skip request. This token value is unique within this task_id. Use this in a undo_skip_phase_request to cancel this specific skip request.",
           "type": "string"
         }
       },
@@ -19,7 +19,7 @@
       "properties": {
         "success": { "$ref": "#/$defs/failure" },
         "error": {
-          "description": "An error message explaining why the interruption failed.",
+          "description": "An error message explaining why the skip request failed.",
           "type": "string"
         }
       },

@@ -10,10 +10,15 @@
       "type": "string",
       "constant": "kill_task_request"
     },
-    "id": {
+    "task_id": {
       "description": "Specify the task ID to kill",
       "type": "string"
+    },
+    "labels": {
+      "description": "Labels to describe the purpose of the kill",
+      "type": "array",
+      "items": { "type": "string" }
     }
   },
-  "required": ["type", "id"]
+  "required": ["type", "task_id"]
 }

@@ -18,6 +18,11 @@
       "description": "Specify the phase that should be skipped",
       "type": "integer",
       "minimum": 0
+    },
+    "labels": {
+      "description": "Labels to describe the purpose of the skip",
+      "type": "array",
+      "items": { "type": "string" }
     }
   },
   "required": ["type", "task_id", "phase_id"]

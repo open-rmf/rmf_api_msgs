@@ -5,6 +5,12 @@
   "description": "An entry in the log of an event",
   "type": "object",
   "properties": {
+    "seq": {
+      "description": "Sequence number for this entry. Each entry has a unique sequence number which monotonically increase, until integer overflow causes a wrap around.",
+      "type": "integer",
+      "minimum": 0,
+      "exclusiveMaximum": 4294967296
+    },
     "tier": {
       "description": "The importance level of the log entry",
       "type": "string",
