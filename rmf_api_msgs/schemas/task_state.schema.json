@@ -33,9 +33,7 @@
     "interruptions": {
       "description": "A dictionary of interruptions that have been applied to this task. The keys (property names) are the unique token of the interruption request.",
       "type": "object",
-      "additionalProperties": {
-        "$ref": "https://open-rmf.org/rmf_api_msgs/task_interruption/0.1"
-      }
+      "additionalProperties": { "$ref": "#/$defs/interruption" }
     },
     "cancellation": {
       "description": "If the task was cancelled, this will describe information about the request.",
