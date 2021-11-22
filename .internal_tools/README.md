@@ -19,3 +19,19 @@ Congratulations! No errors were found!
 ```
 
 Otherwise you will see a list of error messages describing the problems that were detected in the schemas.
+
+## Checking the validity of the samples
+
+The `check_samples` tool can verify that the sample messages that are provided in `rmf_api_msgs` comply with their respective schemas. From this Cargo workspace directory, run the command
+
+```
+$ cargo run -p check_samples -- ../rmf_api_msgs/schemas ../rmf_api_msgs/samples
+```
+
+If all the samples are valid, you will see the message:
+
+```
+Congratulations! No errors were found!
+```
+
+Otherwise you will see a list of error messages describing the problems that were detected in the samples.
