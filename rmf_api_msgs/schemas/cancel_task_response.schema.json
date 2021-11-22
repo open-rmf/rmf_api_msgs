@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/cancel_task_response/0.1",
+  "title": "Task Cancel Response",
+  "description": "Response to a request to cancel a task",
+  "$ref": "https://open-rmf.org/rmf_api_msgs/simple_response/0.1"
+}

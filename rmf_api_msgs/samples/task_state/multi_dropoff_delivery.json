@@ -1,0 +1,168 @@
+{
+  "booking": {
+    "id": "delivery_2021:11:08:23:50",
+    "unix_millis_earliest_start_time": 1636388400000,
+    "priority": "none",
+    "automatic": false
+  },
+  "category": "Multi-Delivery",
+  "detail": [
+    {
+      "category": "Pick Up",
+      "params": {
+        "location": "Kitchen",
+        "items": [
+          {
+            "type": "soda",
+            "quantity": 1
+          },
+          {
+            "type": "water",
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "Drop Off",
+      "params": {
+        "location": "room_203",
+        "items": [
+          {
+            "type": "soda",
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "Drop Off",
+      "params": {
+        "location": "room_521",
+        "items": [
+          {
+            "type": "water",
+            "quantity": 1
+          }
+        ]
+      }
+    }
+  ],
+  "unix_millis_start_time": 1636388410000,
+  "estimate_millis": 2000000,
+  "phases": {
+    "1": {
+      "id": 1,
+      "category": "Pick Up",
+      "detail": {
+        "location": "Kitchen",
+        "items": [
+          {
+            "type": "soda",
+            "quantity": 1
+          },
+          {
+            "type": "water",
+            "quantity": 1
+          }
+        ]
+      },
+      "estimate_millis": 600000,
+      "final_event_id": 0,
+      "events": {
+        "0": {
+          "id": 0,
+          "status": "completed",
+          "name": "Sequence",
+          "detail": "",
+          "deps": [1, 2]
+        },
+        "1": {
+          "id": 1,
+          "status": "completed",
+          "name": "Go to [place:kitchen]",
+          "detail": "",
+          "deps": []
+        },
+        "2": {
+          "id": 2,
+          "status": "completed",
+          "name": "Receive items",
+          "detail": [
+            {
+              "type": "soda",
+              "quantity": 1
+            },
+            {
+              "type": "water",
+              "quantity": 1
+            }
+          ],
+          "deps": []
+        }
+      }
+    },
+    "2": {
+      "id": 2,
+      "category": "Drop Off",
+      "detail": {
+        "location": "room_203",
+        "items": [
+          {
+            "type": "soda",
+            "quantity": 1
+          }
+        ]
+      },
+      "estimate_millis": 720000,
+      "final_event_id": 0,
+      "events": {
+        "0": {
+          "id": 0,
+          "status": "underway",
+          "name": "Sequence",
+          "detail": "",
+          "deps": [1, 2]
+        },
+        "1": {
+          "id": 1,
+          "status": "underway",
+          "name": "Go to [place:room_203]",
+          "detail": "",
+          "log": [
+          ],
+          "deps": []
+        },
+        "2": {
+          "id": 2,
+          "status": "standby",
+          "name": "Unload items",
+          "detail": [
+            {
+              "type": "soda",
+              "quantity": 1
+            }
+          ],
+          "deps": []
+        }
+      }
+    },
+    "3": {
+      "id": 3,
+      "category": "Drop Off",
+      "detail": {
+        "location": "room_521",
+        "items": [
+          {
+            "type": "water",
+            "quantity": 1
+          }
+        ]
+      },
+      "estimate_millis": 680000
+    }
+  },
+  "completed": [ 1 ],
+  "active": 2,
+  "pending": [ 3 ]
+}

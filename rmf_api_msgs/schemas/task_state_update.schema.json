@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/task_state_update/0.1",
+  "title": "Task State Update",
+  "description": "Update for the state of a fleet",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Indicate that this is a task state update",
+      "type": "string",
+      "constant": "task_state_update"
+    },
+    "data": {
+      "$ref": "https://open-rmf.org/rmf_api_msgs/task_state/0.1"
+    }
+  },
+  "required": ["type", "data"]
+}
