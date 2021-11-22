@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-rmf.org/rmf_api_msgs/simple_response/0.1",
+  "title": "Simple Response",
+  "description": "Template for defining a response message that only indicates success and describes any errors",
+  "type": "object",
+  "oneOf": [
+    {
+      "properties": {
+        "success": { "$ref": "#/$defs/success" }
+      },
+      "required": ["success"]
+    },
+    {
+      "properties": {
+        "success": { "$ref": "#/$defs/failure" },
+        "errors": {
+          "description": "If the request failed, these error messages will explain why",
+          "type": "array",
+          "items": { "type": "https://open-rmf.org/rmf_api_msgs/error/0.1" }
+        }
+      },
+      "required": ["success", "errors"]
+    }
+  ],
+  "$defs": {
+    "success": {
+      "description": "The request was successful",
+      "type": "boolean",
+      "const": true
+    },
+    "failure": {
+      "description": "The request failed",
+      "type": "boolean",
+      "const": false
+    }
+  }
+}

@@ -7,11 +7,9 @@
   "properties": {
     "name": { "type": "string" },
     "robots": {
-      "description": "(list:replace) A list of robots that belong to this fleet",
-      "type": "array",
-      "items": {
-        "type": { "$ref": "https://open-rmf.org/rmf_api_msgs/robot_state/0.1" }
-      }
+      "description": "A dictionary of the states of the robots that belong to this fleet",
+      "type": "object",
+      "additionalProperties": { "$ref": "https://open-rmf.org/rmf_api_msgs/robot_state/0.1" }
     }
   }
 }

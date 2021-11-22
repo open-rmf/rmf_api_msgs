@@ -9,5 +9,6 @@
     "x": { "type": "number" },
     "y": { "type": "number" },
     "yaw": { "type": "number" }
-  }
+  },
+  "required": ["map", "x", "y", "yaw"]
 }

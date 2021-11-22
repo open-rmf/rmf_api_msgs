@@ -1,27 +1,26 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/activity_discovery_update/0.1",
+  "$id": "https://open-rmf.org/rmf_api_msgs/activity_discovery_response/0.1",
   "title": "Activity Discovery",
   "description": "Discovered information about what kinds of activities a fleet supports",
   "type": "object",
   "properties": {
-    "type": {
-      "description": "Indicate that this is an activity discovery update",
-      "type": "string",
-      "constant": "activity_discovery_update"
-    },
     "data": {
-      "type": "object",
-      "properties": {
-        "fleet_name": {
-          "description": "Name of the fleet that supports these activities",
-          "type": "string"
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fleet_name": {
+            "description": "Name of the fleet that supports these activities",
+            "type": "string"
+          },
+          "activities": {
+            "description": "List of activities that the fleet supports",
+            "type": "array",
+            "items": { "$ref": "#/$defs/activity" }
+          }
         },
-        "activities": {
-          "description": "(list:replace) List of activities that the fleet supports",
-          "type": "array",
-          "items": { "$ref": "#/$defs/activity" }
-        }
+        "required": ["fleet_name", "activities"]
       }
     }
   },

@@ -3,39 +3,5 @@
   "$id": "https://open-rmf.org/rmf_api_msgs/interrupt_task_response/0.1",
   "title": "Task Interruption Response",
   "description": "Response to a request for a task to be interrupted",
-  "type": "object",
-  "oneOf": [
-    {
-      "properties": {
-        "success": { "$ref": "#/$defs/success" },
-        "token": {
-          "description": "A token for the cancellation request. This token value is unique within this task_id. Use this in a resume_task_request to cancel this specific interruption request.",
-          "type": "string"
-        }
-      },
-      "required": ["success", "token"]
-    },
-    {
-      "properties": {
-        "success": { "$ref": "#/$defs/failure" },
-        "error": {
-          "description": "An error message explaining why the interruption failed.",
-          "type": "string"
-        }
-      },
-      "required": ["success", "error"]
-    }
-  ],
-  "$defs": {
-    "success": {
-      "description": "The request was successful",
-      "type": "boolean",
-      "const": true
-    },
-    "failure": {
-      "description": "The request failed",
-      "type": "boolean",
-      "const": false
-    }
-  }
+  "$ref": "https://open-rmf.org/rmf_api_msgs/token_response/0.1"
 }
