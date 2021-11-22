@@ -1,4 +1,6 @@
 [workspace]
 members = [
-  "check_schemas"
+  "configure_validator",
+  "check_schemas",
+  "check_samples"
 ]

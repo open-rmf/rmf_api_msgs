@@ -113,10 +113,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "check_samples"
+version = "0.1.0"
+dependencies = [
+ "argparse",
+ "configure_validator",
+ "jsonschema",
+ "serde_json",
+]
+
+[[package]]
 name = "check_schemas"
 version = "0.1.0"
 dependencies = [
  "argparse",
+ "configure_validator",
  "jsonschema",
  "serde_json",
 ]
@@ -134,6 +145,14 @@ dependencies = [
  "textwrap",
  "unicode-width",
  "vec_map",
+]
+
+[[package]]
+name = "configure_validator"
+version = "0.1.0"
+dependencies = [
+ "jsonschema",
+ "serde_json",
 ]
 
 [[package]]

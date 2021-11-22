@@ -1,5 +1,5 @@
 [package]
-name = "check_schemas"
+name = "check_samples"
 version = "0.1.0"
 edition = "2021"
 
