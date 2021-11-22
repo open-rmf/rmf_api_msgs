@@ -1,0 +1,79 @@
+{
+  "task_id": "delivery_2021:11:08:23:50",
+  "log": [
+    {
+      "seq": 0,
+      "tier": "info",
+      "unix_millis_time": 1636388410000,
+      "text": "Beginning task"
+    }
+  ],
+  "phases": {
+    "1": {
+      "log": [
+        {
+          "seq": 0,
+          "tier": "info",
+          "unix_millis_time": 1636388410000,
+          "text": "Beginning phase"
+        }
+      ],
+      "events": {
+        "1": [
+          {
+            "seq": 0,
+            "tier": "info",
+            "unix_millis_time": 1636388415000,
+            "text": "Waiting for [door:kitchen_door] to open"
+          },
+          {
+            "seq": 1,
+            "tier": "info",
+            "unix_millis_time": 1636388422000,
+            "text": "Passed through [door:kitchen_door]"
+          },
+          {
+            "seq": 2,
+            "tier": "info",
+            "unix_millis_time": 1636388426000,
+            "text": "Arrived at [place:kitchen]"
+          }
+        ],
+        "2": [
+          {
+            "seq": 0,
+            "tier": "info",
+            "unix_millis_time": 1636388430000,
+            "text": "Received [item:soda]"
+          },
+          {
+            "seq": 1,
+            "tier": "info",
+            "unix_millis_time": 1636388440000,
+            "text": "Received [item:water]"
+          }
+        ]
+      }
+    },
+    "2": {
+      "log": [
+        {
+          "seq": 0,
+          "tier": "info",
+          "unix_millis_time": 1636388444500,
+          "text": "Beginning phase"
+        }
+      ],
+      "events": {
+        "1": [
+          {
+            "seq": 0,
+            "tier": "info",
+            "unix_millis_time": 1636388445000,
+            "text": "Waiting for [door:kitchen_door] to open"
+          }
+        ]
+      }
+    }
+  }
+}
