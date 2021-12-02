@@ -73,7 +73,7 @@
         "0": {
           "id": 0,
           "status": "completed",
-          "name": "Sequence",
+          "name": "Pick Up Sequence",
           "detail": "",
           "deps": [1, 2]
         },
@@ -82,7 +82,7 @@
           "status": "completed",
           "name": "Go to [place:kitchen]",
           "detail": "",
-          "deps": []
+          "deps": [3, 4, 8]
         },
         "2": {
           "id": 2,
@@ -98,6 +98,48 @@
               "quantity": 1
             }
           ],
+          "deps": []
+        },
+        "3": {
+          "id": 3,
+          "status": "completed",
+          "name": "Move to [place:kitchen_door_exterior]",
+          "detail": "",
+          "deps": []
+        },
+        "4": {
+          "id": 4,
+          "status": "completed",
+          "name": "Pass through [door:kitchen_door]",
+          "detail": "",
+          "deps": [5, 6, 7]
+        },
+        "5": {
+          "id": 5,
+          "status": "completed",
+          "name": "Wait for [door:kitchen_door] to open",
+          "detail": "",
+          "deps": []
+        },
+        "6": {
+          "id": 6,
+          "status": "completed",
+          "name": "Move to [place:kitchen_door_interior]",
+          "detail": "",
+          "deps": []
+        },
+        "7": {
+          "id": 7,
+          "status": "completed",
+          "name": "Wait for [door:kitchen_door] to close",
+          "detail": "",
+          "deps": []
+        },
+        "8": {
+          "id": 8,
+          "status": "completed",
+          "name": "Move to [place:kitchen]",
+          "detail": "",
           "deps": []
         }
       }
@@ -120,7 +162,7 @@
         "0": {
           "id": 0,
           "status": "underway",
-          "name": "Sequence",
+          "name": "Drop Off Sequence",
           "detail": "",
           "deps": [1, 2]
         },
@@ -129,9 +171,7 @@
           "status": "underway",
           "name": "Go to [place:room_203]",
           "detail": "",
-          "log": [
-          ],
-          "deps": []
+          "deps": [3, 4, 8, 9, 14]
         },
         "2": {
           "id": 2,
@@ -143,6 +183,90 @@
               "quantity": 1
             }
           ],
+          "deps": []
+        },
+        "3": {
+          "id": 3,
+          "status": "completed",
+          "name": "Move to [place:kitchen_door_interior]",
+          "detail": "",
+          "deps": []
+        },
+        "4": {
+          "id": 4,
+          "status": "underway",
+          "name": "Pass through [door:kitchen_door]",
+          "detail": "",
+          "deps": [5, 6, 7]
+        },
+        "5": {
+          "id": 5,
+          "status": "underway",
+          "name": "Wait for [door:kitchen_door] to open",
+          "detail": "",
+          "deps": []
+        },
+        "6": {
+          "id": 6,
+          "status": "standby",
+          "name": "Move to [place:kitchen_door_exterior]",
+          "detail": "",
+          "deps": []
+        },
+        "7": {
+          "id": 7,
+          "status": "standby",
+          "name": "Wait for [door:kitchen_door] to close",
+          "detail": "",
+          "deps": []
+        },
+        "8": {
+          "id": 8,
+          "status": "standby",
+          "name": "Move to [place:lift_lobby_05_floor_B1]",
+          "detail": "",
+          "deps": []
+        },
+        "9": {
+          "id": 9,
+          "status": "standby",
+          "name": "Take [lift:lift_05_03] to [place:lift_lobby_05_floor_L2]",
+          "detail": "",
+          "deps": [10, 11, 12, 13]
+        },
+        "10": {
+          "id": 10,
+          "status": "underway",
+          "name": "Wait for lift",
+          "detail": "Currently assigned [lift:lift_05_03]",
+          "deps": []
+        },
+        "11": {
+          "id": 11,
+          "status": "standby",
+          "name": "Move to [place:lift_05_03_floor_B1]",
+          "detail": "",
+          "deps": []
+        },
+        "12": {
+          "id": 12,
+          "status": "standby",
+          "name": "Lift [lift:lift_05_03] to [place:lift_05_03_floor_2]",
+          "detail": "",
+          "deps": []
+        },
+        "13": {
+          "id": 13,
+          "status": "standby",
+          "name": "Wait for [lift:lift_05_03] to open",
+          "detail": "",
+          "deps": []
+        },
+        "14": {
+          "id": 14,
+          "status": "standby",
+          "name": "Move to [place:room_203]",
+          "detail": "",
           "deps": []
         }
       }
