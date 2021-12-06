@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://open-rmf.org/rmf_api_msgs/location_2D/0.1",
-  "title": "2D Location",
+  "title": "Location 2D",
   "description": "A robot's location using 2D coordinates",
   "type": "object",
   "properties": {
