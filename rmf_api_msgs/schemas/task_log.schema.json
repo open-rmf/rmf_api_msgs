@@ -9,7 +9,7 @@
     "log": {
       "description": "Log entries related to the overall task",
       "type": "array",
-      "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/log_entry/0.1" }
+      "items": { "$ref": "log_entry.schema.json" }
     },
     "phases": {
       "description": "A dictionary whose keys (property names) are the indices of a phase",
@@ -19,14 +19,14 @@
         "log": {
           "description": "Log entries related to the overall phase",
           "type": "array",
-          "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/log_entry/0.1" }
+          "items": { "$ref": "log_entry.schema.json" }
         },
         "events": {
           "description": "A dictionary whose keys (property names) are the indices of an event in the phase",
           "type": "object",
           "additionalProperties": {
             "type": "array",
-            "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/log_entry/0.1" }
+            "items": { "$ref": "log_entry.schema.json" }
           }
         }
       }

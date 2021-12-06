@@ -16,7 +16,7 @@
       "type": "string"
     },
     "unix_millis_time": { "type": "integer" },
-    "location": { "$ref": "https://open-rmf.org/rmf_api_msgs/location_2D/0.1" },
+    "location": { "$ref": "location_2D.schema.json" },
     "battery": {
       "description": "State of charge of the battery. Values range from 0.0 (depleted) to 1.0 (fully charged)",
       "type": "number",

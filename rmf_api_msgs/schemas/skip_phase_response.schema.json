@@ -3,5 +3,5 @@
   "$id": "https://open-rmf.org/rmf_api_msgs/skip_phase_response/0.1",
   "title": "Skip Phase Response",
   "description": "Response to a request for a phase to be skipped",
-  "$ref": "https://open-rmf.org/rmf_api_msgs/token_response/0.1"
+  "$ref": "token_response.schema.json"
 }

@@ -11,7 +11,7 @@
       "constant": "fleet_state_update"
     },
     "data": {
-      "$ref": "https://open-rmf.org/rmf_api_msgs/fleet_state/0.1"
+      "$ref": "fleet_state.schema.json"
     }
   },
   "required": ["type", "data"]

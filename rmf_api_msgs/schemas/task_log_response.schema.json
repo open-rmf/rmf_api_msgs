@@ -8,7 +8,7 @@
     {
       "properties": {
         "success": { "$ref": "#/$defs/success" },
-        "data": { "$ref": "https://open-rmf.org/rmf_api_msgs/task_log/0.1" }
+        "data": { "$ref": "task_log.schema.json" }
       },
       "required": ["success", "data"]
     },
@@ -18,7 +18,7 @@
         "errors": {
           "description": "Any error messages explaining why the request failed",
           "type": "array",
-          "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/error/0.1" }
+          "items": { "$ref": "error.schema.json" }
         }
       },
       "required": ["success", "errors"]

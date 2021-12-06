@@ -21,7 +21,7 @@
         "errors": {
           "description": "Any error messages explaining why the request failed.",
           "type": "array",
-          "items": { "$ref": "https://open-rmf.org/rmf_api_msgs/error/0.1" }
+          "items": { "$ref": "error.schema.json" }
         }
       },
       "required": ["success", "errors"]

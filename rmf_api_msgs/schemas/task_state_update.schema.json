@@ -11,7 +11,7 @@
       "constant": "task_state_update"
     },
     "data": {
-      "$ref": "https://open-rmf.org/rmf_api_msgs/task_state/0.1"
+      "$ref": "task_state.schema.json"
     }
   },
   "required": ["type", "data"]

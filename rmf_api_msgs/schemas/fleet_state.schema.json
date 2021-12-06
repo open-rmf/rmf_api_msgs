@@ -9,7 +9,7 @@
     "robots": {
       "description": "A dictionary of the states of the robots that belong to this fleet",
       "type": "object",
-      "additionalProperties": { "$ref": "https://open-rmf.org/rmf_api_msgs/robot_state/0.1" }
+      "additionalProperties": { "$ref": "robot_state.schema.json" }
     }
   }
 }

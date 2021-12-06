@@ -10,6 +10,6 @@
       "type": "string",
       "constant": "task_log_update"
     },
-    "data": { "$ref": "https://open-rmf.org/rmf_api_msgs/task_log/0.1" }
+    "data": { "$ref": "task_log.schema.json" }
   }
 }
