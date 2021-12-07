@@ -9,7 +9,7 @@
     "robots": {
       "description": "A dictionary of the states of the robots that belong to this fleet",
       "type": "object",
-      "additionalProperties": { "$ref": "robot_state.schema.json" }
+      "additionalProperties": { "$ref": "robot_state.json" }
     }
   }
 }

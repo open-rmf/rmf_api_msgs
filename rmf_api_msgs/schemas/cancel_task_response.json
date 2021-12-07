@@ -3,5 +3,5 @@
   "$id": "https://open-rmf.org/rmf_api_msgs/cancel_task_response/0.1",
   "title": "Task Cancel Response",
   "description": "Response to a request to cancel a task",
-  "$ref": "simple_response.schema.json"
+  "$ref": "simple_response.json"
 }

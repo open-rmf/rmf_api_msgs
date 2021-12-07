@@ -17,7 +17,7 @@
         "errors": {
           "description": "If the request failed, these error messages will explain why",
           "type": "array",
-          "items": { "$ref": "error.schema.json" }
+          "items": { "$ref": "error.json" }
         }
       },
       "required": ["success", "errors"]

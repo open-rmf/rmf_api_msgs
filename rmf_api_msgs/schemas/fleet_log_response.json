@@ -1,27 +1,24 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/token_response/0.1",
-  "title": "Token Response",
-  "description": "Template for defining a response message that provides a token upon success or errors upon failure",
+  "$id": "https://open-rmf.org/rmf_api_msgs/fleet_log_response/0.1",
+  "title": "Fleet Log Response",
+  "description": "Responding to a fleet log request",
   "type": "object",
   "oneOf": [
     {
       "properties": {
         "success": { "$ref": "#/$defs/success" },
-        "token": {
-          "description": "A token for the request. The value of this token is unique within the scope of this request and can be used by other requests to reference this request.",
-          "type": "string"
-        }
+        "data": { "$ref": "fleet_log.json" }
       },
-      "required": ["success", "token"]
+      "required": ["success", "data"]
     },
     {
       "properties": {
         "success": { "$ref": "#/$defs/failure" },
         "errors": {
-          "description": "Any error messages explaining why the request failed.",
+          "description": "Any error messages explaining why the request failed",
           "type": "array",
-          "items": { "$ref": "error.schema.json" }
+          "items": { "$ref": "error.json" }
         }
       },
       "required": ["success", "errors"]

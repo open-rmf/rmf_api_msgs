@@ -9,14 +9,14 @@
     "log": {
       "description": "Log for the overall fleet",
       "type": "array",
-      "items": { "$ref": "log_entry.schema.json" }
+      "items": { "$ref": "log_entry.json" }
     },
     "robots": {
       "description": "Dictionary of logs for the individual robots. The keys (property names) are the robot names.",
       "type": "object",
       "additionalProperties": {
         "type": "array",
-        "items": { "$ref": "log_entry.schema.json" }
+        "items": { "$ref": "log_entry.json" }
       }
     }
   }

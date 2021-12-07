@@ -10,6 +10,6 @@
       "type": "string",
       "constant": "fleet_log_update"
     },
-    "data": {"$ref": "fleet_log.schema.json" }
+    "data": {"$ref": "fleet_log.json" }
   }
 }

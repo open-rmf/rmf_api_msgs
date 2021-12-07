@@ -10,6 +10,6 @@
       "type": "string",
       "constant": "task_log_update"
     },
-    "data": { "$ref": "task_log.schema.json" }
+    "data": { "$ref": "task_log.json" }
   }
 }

@@ -3,5 +3,5 @@
   "$id": "https://open-rmf.org/rmf_api_msgs/interrupt_task_response/0.1",
   "title": "Task Interruption Response",
   "description": "Response to a request for a task to be interrupted",
-  "$ref": "token_response.schema.json"
+  "$ref": "token_response.json"
 }
