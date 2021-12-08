@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/interrupt_task_request/0.1",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/interrupt_task_request.json",
   "title": "Task Interruption Request",
   "description": "Ask for a task to be interrupted. An interrupted task will resume its task later when a resume_task_requested is sent.",
   "type": "object",
