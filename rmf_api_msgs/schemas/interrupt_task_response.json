@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/interrupt_task_response/0.1",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/interrupt_task_response.json",
   "title": "Task Interruption Response",
   "description": "Response to a request for a task to be interrupted",
   "$ref": "token_response.json"

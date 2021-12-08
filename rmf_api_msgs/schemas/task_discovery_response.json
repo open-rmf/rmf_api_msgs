@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/task_discovery_update/0.1",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_discovery_update.json",
   "title": "Task Discovery",
   "description": "Discovered information about what kinds of tasks a fleet supports",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/skip_phase_request/0.1",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/skip_phase_request.json",
   "title": "Task Phase Skip Request",
   "description": "Ask for a phase to be skipped.",
   "type": "object",

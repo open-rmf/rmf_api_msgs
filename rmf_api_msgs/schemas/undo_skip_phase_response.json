@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/undo_phase_skip_response/0.1",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/undo_phase_skip_response.json",
   "title": "Undo Phase Skip Response",
   "description": "Response to an undo phase skip request",
   "$ref": "simple_response.json"

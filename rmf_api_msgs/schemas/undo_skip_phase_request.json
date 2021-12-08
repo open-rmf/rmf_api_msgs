@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/undo_phase_skip_request/0.1",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/undo_phase_skip_request.json",
   "title": "Undo Phase Skip Request",
   "description": "This can be used to discard phase skip requests. When all phase skip requests for a phase are discarded, the phase will not be skipped.",
   "properties": {

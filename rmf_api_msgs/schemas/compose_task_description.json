@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://open-rmf.org/rmf_api_msgs/compose_task_description/0.1",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/compose_task_description.json",
   "title": "Compose Task Description",
   "description": "Compose a task description based on activities that are supported by fleets. When supported by fleets, this can be used as a task description for task_request.",
   "type": "object",
