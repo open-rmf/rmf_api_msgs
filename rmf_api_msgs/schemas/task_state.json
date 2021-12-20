@@ -10,6 +10,7 @@
     "detail": { "$ref": "#/$defs/detail" },
     "unix_millis_start_time": { "type": "integer" },
     "unix_millis_finish_time": { "type": "integer" },
+    "original_estimate_millis": { "$ref": "#/$defs/estimate_millis" },
     "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
     "phases": {
       "description": "A dictionary of the states of the phases of the task. The keys (property names) are phase IDs, which are integers.",
@@ -77,6 +78,9 @@
         "id": { "$ref": "#/$defs/id" },
         "category": { "$ref": "#/$defs/category" },
         "detail": { "$ref": "#/$defs/detail" },
+        "unix_millis_start_time": { "type": "integer" },
+        "unix_millis_finish_time": { "type": "integer" },
+        "original_estimate_millis": { "$ref": "#/$defs/estimate_millis" },
         "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
         "final_event_id": { "$ref": "#/$defs/id" },
         "events": {
