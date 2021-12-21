@@ -12,6 +12,16 @@
     "unix_millis_finish_time": { "type": "integer" },
     "original_estimate_millis": { "$ref": "#/$defs/estimate_millis" },
     "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
+    "assigned_to": {
+      "description": "Which agent (robot) is the task assigned to",
+      "type": "object",
+      "properties": {
+        "group": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "required": ["group", "name"]
+    },
+    "status": { "$ref": "#/$defs/status" },
     "phases": {
       "description": "A dictionary of the states of the phases of the task. The keys (property names) are phase IDs, which are integers.",
       "type": "object",
@@ -146,11 +156,7 @@
       "type": "object",
       "properties": {
         "id": { "$ref": "#/$defs/id" },
-        "status": {
-          "description": "A simple token representing how the task is proceeding",
-          "type": "string",
-          "enum": ["uninitialized", "blocked", "error", "failed", "standby", "underway", "delayed", "skipped", "canceled", "killed", "completed"]
-        },
+        "status": { "$ref": "#/$defs/status"},
         "name": {
           "description": "The brief name of the event",
           "type": "string"
@@ -170,6 +176,11 @@
         }
       },
       "required": ["id"]
+    },
+    "status": {
+      "description": "A simple token representing how the task is proceeding",
+      "type": "string",
+      "enum": ["uninitialized", "blocked", "error", "failed", "standby", "underway", "delayed", "skipped", "canceled", "killed", "completed"]
     },
     "interruption": {
       "description": "Task interruption information",
