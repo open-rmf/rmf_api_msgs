@@ -12,6 +12,15 @@
     "unix_millis_finish_time": { "type": "integer" },
     "original_estimate_millis": { "$ref": "#/$defs/estimate_millis" },
     "estimate_millis": { "$ref": "#/$defs/estimate_millis" },
+    "assigned_to": {
+      "description": "Which agent (robot) is the task assigned to",
+      "type": "object",
+      "properties": {
+        "group": { "type": "string" },
+        "name": { "type": "string" }
+      },
+      "required": ["group", "name"]
+    },
     "phases": {
       "description": "A dictionary of the states of the phases of the task. The keys (property names) are phase IDs, which are integers.",
       "type": "object",
