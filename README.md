@@ -1,2 +1,28 @@
 # rmf_api_msgs
-Collection of messages which bridges the C++ components of RMF to the web interface
+
+Collection of json message schemas which bridges the C++ and python components of RMF to the web interface
+
+# Usage
+
+Compile with [colcon](https://colcon.readthedocs.io/en/released/) is recommended
+
+```bash
+colcon build --packages-select rmf_api_msgs
+source install/setup.bash
+```
+
+1. C++ example:
+
+```cpp
+#include <rmf_api_msgs/schemas/task_state.hpp>
+
+nlohmann::json schema = rmf_api_msgs::schemas::task_state
+```
+
+1. Python example:
+
+```py
+from rmf_api_msgs import schemas
+
+schema = schemas.task_state()
+```

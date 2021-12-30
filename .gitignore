@@ -1,0 +1,11 @@
+__pycache__
+build
+.vscode
+
+# temp file during py mod generation, Note: have this is /build?
+rmf_api_msgs/rmf_api_msgs/schemas.py
+
+# Executables
+*.exe
+*.out
+*.app

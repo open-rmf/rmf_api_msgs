@@ -20,6 +20,7 @@ endif()
 
 include(GNUInstallDirs)
 
+find_package(ament_cmake REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 include(cmake/rmf_api_generate_schema_headers.cmake)
@@ -79,3 +80,21 @@ install(
   DIRECTORY schemas
   DESTINATION ${CMAKE_INSTALL_DATADIR}
 )
+
+# Generate python schemas mode whenever colcon is triggered
+message(" Generating schema as py mods")
+ADD_CUSTOM_TARGET(
+  do_always ALL
+  COMMAND python3 generate_py_schemas.py -p ${CMAKE_CURRENT_LIST_DIR}
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/scripts)
+
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+
+# # Install Python executables
+install(PROGRAMS
+  scripts/check_sample.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+ament_package()
