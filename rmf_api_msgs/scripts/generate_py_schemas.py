@@ -26,17 +26,22 @@ import glob
 
 def main(argv=None):
     """
-    This will load schema_template, and a list of schemas, then generate and 
-    output a schemas.py script locally for pkg installation.
+    This script will load a list of json schemas for py module generation.
+    According to the jinja2 py template, it will then generate a schemas.py
+    script locally for pkg installation.
     """
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--pkg_dir', required=True,
-                    type=str, help='rmf_api_msgs pkg dir')
+                        type=str, help='rmf_api_msgs pkg dir')
     args = parser.parse_args(argv[1:])
-    pkg_dir = args.pkg_dir
+
+    # collections of file paths for IO
+    template_path = f'{args.pkg_dir}/scripts/schemas_template.jinja2'
+    schemas_files_dir = f'{args.pkg_dir}/schemas/*.json'
+    output_script_path = f'{args.pkg_dir}/rmf_api_msgs/schemas.py'
 
     # open template
-    file = open(f"{pkg_dir}/scripts/schemas_template.jinja2")
+    file = open(template_path)
     schema_template = file.read()
     file.close()
 
@@ -44,25 +49,26 @@ def main(argv=None):
     print("py template for json schema is loaded, now load json schemas... \n")
 
     # get all json schemas filenames in the target dir
-    filenames = [
-        os.path.basename(x) for x in glob.glob(f"{pkg_dir}/schemas/*.json")
-    ]
-
-    print(" - Target Schemas: " , filenames)
+    file_paths = glob.glob(schemas_files_dir)
+    print(" - Target Schemas: ", [os.path.basename(x) for x in file_paths])
 
     # Create json string
     schemas_dict = {}
-    for file_name in filenames:
-        file = open(f"{pkg_dir}/schemas/{file_name}")
+    for file_path in file_paths:
+        file = open(file_path)
         json_body = (file.read())
         file.close()
-        mod_name = os.path.splitext(file_name)[0]
+
+        # get raw file name from file path
+        filename = os.path.basename(file_path)
+        mod_name = os.path.splitext(filename)[0]
         schemas_dict[mod_name] = json_body
 
     output_script = t.render(schemas_dict=schemas_dict)
 
-    with open(f'{pkg_dir}/rmf_api_msgs/schemas.py', 'w') as f:
+    with open(output_script_path, 'w') as f:
         f.write(output_script)
+        print(f" py schemas module is created: {output_script_path}")
 
     print("\n Done with py schema modules generation!")
 

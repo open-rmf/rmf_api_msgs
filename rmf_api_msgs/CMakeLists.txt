@@ -94,6 +94,7 @@ ament_python_install_package(${PROJECT_NAME})
 # # Install Python executables
 install(PROGRAMS
   scripts/check_sample.py
+  scripts/generate_py_schemas.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

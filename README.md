@@ -11,6 +11,8 @@ colcon build --packages-select rmf_api_msgs
 source install/setup.bash
 ```
 
+Subsequently, to access the schemas, the user just needs to include/import the cpp header or py module into their source code.
+
 1. C++ example:
 
 ```cpp
