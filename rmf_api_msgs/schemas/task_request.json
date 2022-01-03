@@ -13,14 +13,10 @@
       "description": "(Optional) The priority of this task. This must match a priority schema supported by a fleet.",
       "type": "object"
     },
+    "category": { "type": "string" },
     "description": {
-      "description": "A description of the task. This must match a schema supported by a fleet.",
-      "type": "object",
-      "properties": {
-        "category": { "type": "string" }
-      },
-      "required": ["category"]
+      "description": "A description of the task. This must match a schema supported by a fleet for the category of this task request."
     }
   },
-  "required": ["description"]
+  "required": ["category", "description"]
 }
