@@ -4,6 +4,7 @@ build
 
 # temp file during py mod generation, Note: have this is /build?
 rmf_api_msgs/rmf_api_msgs/schemas.py
+rmf_api_msgs/rmf_api_msgs/models/*
 
 # Executables
 *.exe
