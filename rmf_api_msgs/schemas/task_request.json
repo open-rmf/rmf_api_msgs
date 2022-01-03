@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_request.json",
   "title": "Task Request",
-  "description": "Request a task to be performed. This is used in a REST POST request.",
+  "description": "Describe a task request",
   "type": "object",
   "properties": {
     "unix_millis_earliest_start_time": {

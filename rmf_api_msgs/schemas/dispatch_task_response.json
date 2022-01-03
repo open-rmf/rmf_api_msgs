@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/dispatch_task_response.json",
+  "title": "Task Dispatch Response",
+  "description": "Response to a task dispatch request",
+  "type": "object",
+  "oneOf": [
+    {
+      "properties": {
+        "success": { "type": "boolean", "const": true },
+        "task_id": {
+          "description": "The task ID that has been assigned to the task for this request",
+          "type": "string"
+        }
+      },
+      "required": ["success", "task_id"]
+    },
+    {
+      "properties": {
+        "success": { "type": "boolean", "const": false },
+        "errors": {
+          "description": "Any error messages explaining why the request failed",
+          "type": "array",
+          "items": { "$ref": "error.json" }
+        }
+      }
+    }
+  ]
+}
