@@ -10,12 +10,7 @@
       "type": "string",
       "constant": "dispatch_task_request"
     },
-    "request": { "$ref": "task_request.json" },
-    "labels": {
-      "description": "Labels to describe the purpose of the task dispatch request",
-      "type": "array",
-      "items": { "type": "string" }
-    }
+    "request": { "$ref": "task_request.json" }
   },
   "required": ["type", "request"]
 }
