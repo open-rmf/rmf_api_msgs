@@ -8,10 +8,7 @@
     {
       "properties": {
         "success": { "type": "boolean", "const": true },
-        "task_id": {
-          "description": "The task ID that has been assigned to the task for this request",
-          "type": "string"
-        }
+        "state": { "$ref": "task_state.json" }
       },
       "required": ["success", "task_id"]
     },

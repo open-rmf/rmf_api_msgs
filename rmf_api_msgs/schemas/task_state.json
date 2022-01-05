@@ -22,6 +22,7 @@
       "required": ["group", "name"]
     },
     "status": { "$ref": "#/$defs/status" },
+    "dispatch": { "$ref": "#/$defs/dispatch" },
     "phases": {
       "description": "A dictionary of the states of the phases of the task. The keys (property names) are phase IDs, which are integers.",
       "type": "object",
@@ -180,7 +181,29 @@
     "status": {
       "description": "A simple token representing how the task is proceeding",
       "type": "string",
-      "enum": ["uninitialized", "blocked", "error", "failed", "standby", "underway", "delayed", "skipped", "canceled", "killed", "completed"]
+      "enum": ["uninitialized", "blocked", "error", "failed", "queued", "standby", "underway", "delayed", "skipped", "canceled", "killed", "completed"]
+    },
+    "dispatch": {
+      "description": "Information about how this task is being dispatched",
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["queued", "selected", "dispatched", "failed_to_assign", "canceled_in_flight"]
+        },
+        "assignment": {
+          "type": "object",
+          "properties": {
+            "fleet_name": { "type": "string" },
+            "expected_robot_name": { "type": "string" }
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "error.json" }
+        }
+      },
+      "required": ["status"]
     },
     "interruption": {
       "description": "Task interruption information",
