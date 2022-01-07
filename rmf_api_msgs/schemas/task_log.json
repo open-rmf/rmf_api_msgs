@@ -16,21 +16,25 @@
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "log": {
-          "description": "Log entries related to the overall phase",
-          "type": "array",
-          "items": { "$ref": "log_entry.json" }
-        },
-        "events": {
-          "description": "A dictionary whose keys (property names) are the indices of an event in the phase",
-          "type": "object",
-          "additionalProperties": {
+        "properties": {
+          "log": {
+            "description": "Log entries related to the overall phase",
             "type": "array",
             "items": { "$ref": "log_entry.json" }
+          },
+          "events": {
+            "description": "A dictionary whose keys (property names) are the indices of an event in the phase",
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": { "$ref": "log_entry.json" }
+            }
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   },
+  "additionalProperties": false,
   "required": ["task_id"]
 }
