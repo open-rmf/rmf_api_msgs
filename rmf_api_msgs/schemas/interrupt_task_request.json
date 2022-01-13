@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a task interruption request",
       "type": "string",
-      "constant": "interrupt_task_request"
+      "enum": ["interrupt_task_request"]
     },
     "task_id": {
       "description": "Specify the task ID to interrupt",

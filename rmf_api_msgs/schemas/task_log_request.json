@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a task log request",
       "type": "string",
-      "constant": "task_log_request"
+      "enum": ["task_log_request"]
     },
     "task_id": {
       "description": "Specify the ID of the task whose log should be fetched",

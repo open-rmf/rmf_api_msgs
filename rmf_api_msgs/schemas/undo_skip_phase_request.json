@@ -7,7 +7,7 @@
     "type": {
       "description": "Indicate that this is a request to undo a phase skip request",
       "type": "string",
-      "constant": "undo_phase_skip_request"
+      "enum": ["undo_phase_skip_request"]
     },
     "for_task": {
       "description": "Specify the relevant task ID",

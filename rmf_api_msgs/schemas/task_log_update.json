@@ -8,8 +8,9 @@
     "type": {
       "description": "Indicate that this is an event log update",
       "type": "string",
-      "constant": "task_log_update"
+      "enum": ["task_log_update"]
     },
     "data": { "$ref": "task_log.json" }
-  }
+  },
+  "required": ["type", "data"]
 }

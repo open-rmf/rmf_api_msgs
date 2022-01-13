@@ -27,12 +27,12 @@
     "success": {
       "description": "The request was successful",
       "type": "boolean",
-      "const": true
+      "enum": [true]
     },
     "failure": {
       "description": "The request failed",
       "type": "boolean",
-      "const": false
+      "enum": [false]
     }
   }
 }

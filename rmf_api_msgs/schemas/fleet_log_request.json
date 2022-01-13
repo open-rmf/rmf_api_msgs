@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a fleet log request",
       "type": "string",
-      "constant": "fleet_log_request"
+      "enum": ["fleet_log_request"]
     },
     "fleet": {
       "description": "Specify the name of the fleet whose log should be fetched",

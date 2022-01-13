@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is an task discovery update",
       "type": "string",
-      "constant": "task_discovery_update"
+      "enum": ["task_discovery_update"]
     },
     "data": {
       "type": "object",
@@ -25,6 +25,7 @@
       }
     }
   },
+  "required": ["type", "data"],
   "$defs": {
     "task": {
       "description": "Information about a task",
