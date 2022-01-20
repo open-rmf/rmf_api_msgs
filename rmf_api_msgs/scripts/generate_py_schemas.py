@@ -31,17 +31,16 @@ def main(argv=None):
     script locally for pkg installation.
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--pkg_dir', required=True,
-                        type=str, help='rmf_api_msgs pkg dir')
+    parser.add_argument('-tf', '--template_file', required=True, type=str,
+                        help='path for schemas template file in .jinja2')
+    parser.add_argument('-sd', '--schemas_dir', required=True, type=str,
+                        help='input directory with *.json schemas files')
+    parser.add_argument('-o', '--output_file', default="schemas.py", type=str,
+                        help='output schema script path, default: schemas.py')
     args = parser.parse_args(argv[1:])
 
-    # collections of file paths for IO
-    template_path = f'{args.pkg_dir}/scripts/schemas_template.jinja2'
-    schemas_files_dir = f'{args.pkg_dir}/schemas/*.json'
-    output_script_path = f'{args.pkg_dir}/rmf_api_msgs/schemas.py'
-
-    # open template
-    file = open(template_path)
+    # open template file path
+    file = open(args.template_file)
     schema_template = file.read()
     file.close()
 
@@ -49,7 +48,7 @@ def main(argv=None):
     print("py template for json schema is loaded, now load json schemas... \n")
 
     # get all json schemas filenames in the target dir
-    file_paths = glob.glob(schemas_files_dir)
+    file_paths = glob.glob(f"{args.schemas_dir}/*.json")
     print(" - Target Schemas: ", [os.path.basename(x) for x in file_paths])
 
     # Create json string
@@ -66,9 +65,9 @@ def main(argv=None):
 
     output_script = t.render(schemas_dict=schemas_dict)
 
-    with open(output_script_path, 'w') as f:
+    with open(args.output_file, 'w') as f:
         f.write(output_script)
-        print(f" py schemas module is created: {output_script_path}")
+        print(f" py schemas module is created: {args.output_file}")
 
     print("\n Done with py schema modules generation!")
 

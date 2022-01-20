@@ -85,7 +85,10 @@ install(
 message(" Generating schema as py mods")
 ADD_CUSTOM_TARGET(
   py_schemas_gen ALL
-  COMMAND python3 generate_py_schemas.py -p ${CMAKE_CURRENT_LIST_DIR}
+  COMMAND eval "python3 generate_py_schemas.py \
+    --template_file ${CMAKE_CURRENT_LIST_DIR}/scripts/schemas_template.jinja2 \
+    --schemas_dir ${CMAKE_CURRENT_LIST_DIR}/schemas \
+    --output_file ${CMAKE_CURRENT_LIST_DIR}/rmf_api_msgs/schemas.py"
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/scripts)
 
 # Generate pydantic models according to schemas
