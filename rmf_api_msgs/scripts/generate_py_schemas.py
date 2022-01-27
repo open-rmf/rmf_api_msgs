@@ -30,14 +30,23 @@ def main(argv=None):
     According to the jinja2 py template, it will then generate a schemas.py
     script locally for pkg installation.
     """
+    script_path = os.path.dirname(os.path.realpath(__file__)) # script dir
+
     parser = argparse.ArgumentParser()
-    parser.add_argument('-tf', '--template_file', required=True, type=str,
-                        help='path for schemas template file in .jinja2')
     parser.add_argument('-sd', '--schemas_dir', required=True, type=str,
                         help='input directory with *.json schemas files')
     parser.add_argument('-o', '--output_file', default="schemas.py", type=str,
                         help='output schema script path, default: schemas.py')
+    parser.add_argument('-tf', '--template_file', type=str,
+                        default=f"{script_path}/schemas_template.jinja2",
+                        help=f'path of custom template .jinja2 file, \
+                            default: [{script_path}/schemas_template.jinja2]')
     args = parser.parse_args(argv[1:])
+
+    # directory and path check
+    if not os.path.exists(args.template_file):
+        print(f"template file: {args.template_file} doesnt exist")
+        exit(1)
 
     # open template file path
     file = open(args.template_file)
@@ -67,7 +76,7 @@ def main(argv=None):
 
     with open(args.output_file, 'w') as f:
         f.write(output_script)
-        print(f" py schemas module is created: {args.output_file}")
+        print(f" py schemas module is created: [{args.output_file}]")
 
     print("\n Done with py schema modules generation!")
 

@@ -86,7 +86,6 @@ message(" Generating schema as py mods")
 ADD_CUSTOM_TARGET(
   py_schemas_gen ALL
   COMMAND eval "python3 generate_py_schemas.py \
-    --template_file ${CMAKE_CURRENT_LIST_DIR}/scripts/schemas_template.jinja2 \
     --schemas_dir ${CMAKE_CURRENT_LIST_DIR}/schemas \
     --output_file ${CMAKE_CURRENT_LIST_DIR}/rmf_api_msgs/schemas.py"
   WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/scripts)
@@ -94,7 +93,6 @@ ADD_CUSTOM_TARGET(
 # Generate pydantic models according to schemas
 # If datamodel-codegen not avail, then skip this proccess along with warning
 find_program(PY_MODELGEN_AVAIL datamodel-codegen)
-message("program is avail? " ${PY_MODELGEN_AVAIL})
 if(PY_MODELGEN_AVAIL)
   message(" Generating py models with 'datamodel-codegen'")
   ADD_CUSTOM_TARGET(
@@ -113,9 +111,10 @@ endif()
 # Install Python modules
 ament_python_install_package(${PROJECT_NAME})
 
-# # Install Python executables
+# # Install Python executables and share template
 install(PROGRAMS
   scripts/check_sample.py
+  scripts/schemas_template.jinja2
   scripts/generate_py_schemas.py
   DESTINATION lib/${PROJECT_NAME}
 )
