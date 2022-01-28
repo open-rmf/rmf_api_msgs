@@ -8,8 +8,9 @@
     "type": {
       "description": "Indicate that this is a fleet log update",
       "type": "string",
-      "constant": "fleet_log_update"
+      "enum": ["fleet_log_update"]
     },
     "data": {"$ref": "fleet_log.json" }
-  }
+  },
+  "required": ["type", "data"]
 }

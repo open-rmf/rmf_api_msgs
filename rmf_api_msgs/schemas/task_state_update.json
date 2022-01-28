@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a task state update",
       "type": "string",
-      "constant": "task_state_update"
+      "enum": ["task_state_update"]
     },
     "data": {
       "$ref": "task_state.json"

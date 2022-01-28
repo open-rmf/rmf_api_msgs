@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a task dispatch request",
       "type": "string",
-      "constant": "dispatch_task_request"
+      "enum": ["dispatch_task_request"]
     },
     "request": { "$ref": "task_request.json" }
   },

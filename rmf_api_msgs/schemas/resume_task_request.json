@@ -7,7 +7,7 @@
     "type": {
       "description": "Indicate that this is a task resuming request",
       "type": "string",
-      "constant": "resume_task_request"
+      "enum": ["resume_task_request"]
     },
     "for_task": {
       "description": "Specify task ID to resume.",
