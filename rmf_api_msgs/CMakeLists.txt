@@ -20,6 +20,7 @@ endif()
 
 include(GNUInstallDirs)
 
+find_package(ament_cmake REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 include(cmake/rmf_api_generate_schema_headers.cmake)
@@ -79,3 +80,44 @@ install(
   DIRECTORY schemas
   DESTINATION ${CMAKE_INSTALL_DATADIR}
 )
+
+# Generate python schemas mode whenever colcon is triggered
+message(" Generating schema as py mods")
+ADD_CUSTOM_TARGET(
+  py_schemas_gen ALL
+  COMMAND eval "python3 generate_py_schemas.py \
+    --template_file ${CMAKE_CURRENT_LIST_DIR}/scripts/schemas_template.jinja2 \
+    --schemas_dir ${CMAKE_CURRENT_LIST_DIR}/schemas \
+    --output_file ${CMAKE_CURRENT_LIST_DIR}/rmf_api_msgs/schemas.py"
+  WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/scripts)
+
+# Generate pydantic models according to schemas
+# If datamodel-codegen not avail, then skip this proccess along with warning
+find_program(PY_MODELGEN_AVAIL datamodel-codegen)
+message("program is avail? " ${PY_MODELGEN_AVAIL})
+if(PY_MODELGEN_AVAIL)
+  message(" Generating py models with 'datamodel-codegen'")
+  ADD_CUSTOM_TARGET(
+    py_models_gen ALL
+    COMMAND eval "datamodel-codegen \
+      --disable-timestamp \
+      --input-file-type jsonschema  \
+      --input ${CMAKE_CURRENT_LIST_DIR}/schemas \
+      --output ${CMAKE_CURRENT_LIST_DIR}/rmf_api_msgs/models"
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/scripts)
+else()
+  message(
+    WARNING "Not able to generate py models since 'datamodel-codegen' is not avail")
+endif()
+
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+
+# # Install Python executables
+install(PROGRAMS
+  scripts/check_sample.py
+  scripts/generate_py_schemas.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+ament_package()

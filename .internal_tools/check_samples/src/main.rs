@@ -11,15 +11,17 @@ fn generate_schema_file_map(schema_directory: &str) -> HashMap<String, String> {
     for entry in std::fs::read_dir(&schema_directory).unwrap() {
         let file = entry.unwrap();
         map.insert(file.path().file_prefix().unwrap().to_str().unwrap().to_string(), file.path().to_str().unwrap().to_string());
-    }
-
+        let idx = file.path().file_prefix().unwrap().to_str().unwrap().to_string();
+        let ele = file.path().to_str().unwrap().to_string();
+        println!("file: {}  -> {}", idx, ele);
+    }   
     return map;
 }
 
 fn check_samples(schema_directory: &str, sample_directory: &str, options: CompilationOptions) -> bool {
 
     let schema_file_map = generate_schema_file_map(&schema_directory);
-
+    println!("---------------------------------------\n");
     let mut error_found = false;
     for subdirectory_entry in std::fs::read_dir(&sample_directory).unwrap() {
         let subdirectory = subdirectory_entry.unwrap().path();
@@ -34,6 +36,9 @@ fn check_samples(schema_directory: &str, sample_directory: &str, options: Compil
                     for entry in std::fs::read_dir(&subdirectory).unwrap() {
                         let sample_file = entry.unwrap();
                         let sample_str = std::fs::read_to_string(&sample_file.path()).unwrap();
+                        println!("##############################\n sample file: {} with {} ->\n {}",
+                                 sample_file.path().to_str().unwrap(), schema_path, sample_str);
+
                         let sample: Value = serde_json::from_str(&sample_str).unwrap();
                         let validation = validator.validate(&sample);
                         if let Err(errors) = validation {

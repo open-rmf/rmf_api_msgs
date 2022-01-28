@@ -10,7 +10,7 @@
         "success": { "type": "boolean", "enum": [true] },
         "state": { "$ref": "task_state.json" }
       },
-      "required": ["success", "task_id"]
+      "required": ["success", "state"]
     },
     {
       "properties": {
