@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a task kill request",
       "type": "string",
-      "constant": "kill_task_request"
+      "enum": ["kill_task_request"]
     },
     "task_id": {
       "description": "Specify the task ID to kill",

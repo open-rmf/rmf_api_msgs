@@ -7,14 +7,14 @@
   "oneOf": [
     {
       "properties": {
-        "success": { "type": "boolean", "const": true },
+        "success": { "type": "boolean", "enum": [true] },
         "state": { "$ref": "task_state.json" }
       },
       "required": ["success", "state"]
     },
     {
       "properties": {
-        "success": { "type": "boolean", "const": false },
+        "success": { "type": "boolean", "enum": [false] },
         "errors": {
           "description": "Any error messages explaining why the request failed",
           "type": "array",

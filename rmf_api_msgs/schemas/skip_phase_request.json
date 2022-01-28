@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a phase skip request",
       "type": "string",
-      "constant": "skip_phase_request"
+      "enum": ["skip_phase_request"]
     },
     "task_id": {
       "description": "Specify the task ID whose phase should be skipped",

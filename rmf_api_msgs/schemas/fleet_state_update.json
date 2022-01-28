@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a fleet state update",
       "type": "string",
-      "constant": "fleet_state_update"
+      "enum": ["fleet_state_update"]
     },
     "data": {
       "$ref": "fleet_state.json"

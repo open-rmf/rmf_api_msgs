@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a task rewind request",
       "type": "string",
-      "constant": "rewind_task_request"
+      "enum": ["rewind_task_request"]
     },
     "task_id": {
       "description": "Specify the ID of the task that should rewind",
