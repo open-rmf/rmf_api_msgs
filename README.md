@@ -26,7 +26,7 @@ Subsequently, to access the schemas, the user just needs to include/import the c
 nlohmann::json schema = rmf_api_msgs::schemas::task_state
 ```
 
-1. Python example:
+2. Python example:
 
 ```py
 from rmf_api_msgs import schemas
