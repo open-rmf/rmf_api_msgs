@@ -235,7 +235,7 @@
           "required": ["unix_millis_resume_time", "labels"]
         }
       },
-      "required": ["unix_millis_request_time", "token", "labels"]
+      "required": ["unix_millis_request_time", "labels"]
     },
     "skip_phase_request": {
       "description": "Information about a request to skip a phase",
