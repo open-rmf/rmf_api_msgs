@@ -105,7 +105,7 @@ if(PY_MODELGEN_AVAIL)
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/scripts)
 else()
   message(
-    WARNING "Not able to generate py models since 'datamodel-codegen' is not avail")
+    WARNING "Not able to generate py models since 'datamodel-codegen' is not available")
 endif()
 
 # Install Python modules
