@@ -13,6 +13,14 @@
       "description": "Schedule for the task, format following the cron string standard",
       "type": "string"
     },
+    "unix_millis_start_at": {
+      "description": "(Optional) Timestamp in unix epoch milliseconds, at which the schedule should start, will be set to now if undefined",
+      "type": "integer"
+    },
+    "unix_millis_finish_at": {
+      "description": "(Optional) Timestamp in unix epoch milliseconds, at which the schedule should end. Will be ending at int64 wrap time if undefined.",
+      "type": "integer"
+    },
     "request": { "$ref": "task_request.json" }
   },
   "required": ["request"]
