@@ -5,12 +5,15 @@
   "description": "Request a task to be executed at a fixed schedule",
   "type": "object",
   "properties": {
-    "type": {
-      "description": "Indicate that this is a task schedule add request",
-      "type": "string",
-      "constant": "task_schedule_add_request"
+    "name": {
+      "description": "Name for the scheduled task",
+      "type": "string"
     },
-    "schedule": { "$ref": "task_schedule.json" }
+    "schedule": {
+      "description": "Schedule for the task, format following the cron string standard",
+      "type": "string"
+    },
+    "request": { "$ref": "task_request.json" }
   },
-  "required": ["type", "schedule"]
+  "required": ["request"]
 }

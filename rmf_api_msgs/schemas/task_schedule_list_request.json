@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_schedule_list_request.json",
+  "title": "List Task Schedules Request",
+  "description": "Request a list of scheduled tasks",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Indicate that this is a task schedule list request",
+      "type": "string",
+      "constant": "task_schedule_list_request"
+    }
+  },
+  "required": ["type"]
+}
