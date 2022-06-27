@@ -23,5 +23,5 @@
     },
     "request": { "$ref": "task_request.json" }
   },
-  "required": ["request"]
+  "required": ["name", "schedule", "unix_millis_start_at", "unix_millis_finish_at", "request"]
 }
