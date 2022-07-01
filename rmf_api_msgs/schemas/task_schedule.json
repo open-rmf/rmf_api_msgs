@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_schedule_add_request.json",
-  "title": "Add Task Schedule Request",
-  "description": "Request a task to be executed at a fixed schedule",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_schedule.json",
+  "title": "Task Schedule",
+  "description": "Describe a task schedule",
   "type": "object",
   "properties": {
     "name": {
