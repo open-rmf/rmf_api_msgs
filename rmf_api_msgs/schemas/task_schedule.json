@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_schedule.json",
+  "title": "Task Schedule",
+  "description": "Describe a task schedule",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name for the scheduled task",
+      "type": "string"
+    },
+    "schedule": {
+      "description": "Schedule for the task, format following the cron string standard",
+      "type": "string"
+    },
+    "unix_millis_start_at": {
+      "description": "(Optional) Timestamp in unix epoch milliseconds, at which the schedule should start, will be set to now if undefined",
+      "type": "integer"
+    },
+    "unix_millis_finish_at": {
+      "description": "(Optional) Timestamp in unix epoch milliseconds, at which the schedule should end. Will be ending at int64 wrap time if undefined.",
+      "type": "integer"
+    },
+    "request": { "$ref": "task_request.json" }
+  },
+  "required": ["name", "schedule", "unix_millis_start_at", "unix_millis_finish_at", "request"]
+}
