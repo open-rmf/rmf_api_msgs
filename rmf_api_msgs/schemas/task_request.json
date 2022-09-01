@@ -15,6 +15,7 @@
     },
     "category": { "type": "string" },
     "description": {
+      "type": "string",
       "description": "A description of the task. This must match a schema supported by a fleet for the category of this task request."
     },
     "labels": {
