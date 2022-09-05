@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/fleet_log.json",
-  "title": "Fleet State",
+  "title": "Fleet Log",
   "description": "The log of a fleet",
   "type": "object",
   "properties": {
