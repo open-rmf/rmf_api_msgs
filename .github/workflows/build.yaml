@@ -1,5 +1,8 @@
 name: build
 on: [push, pull_request]
+defaults:
+  run:
+    shell: bash
 jobs:
   build_and_test:
     strategy:
@@ -38,8 +41,7 @@ jobs:
           CXX: clang++
         with:
           target-ros2-distro: ${{ matrix.ros_distribution }}
-          # Build all packages listed in the meta package, as well as their
-          # downstream packages, to check for breaking changes.
+          # build all packages listed in the meta package
           package-name: |
             rmf_api_msgs
           vcs-repo-file-url: |
@@ -51,6 +53,12 @@ jobs:
               }
             }
           colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+      - name: Upload failed test results
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: test-results
+          path: ros_ws/build/*/test_results/*/*.catch2.xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
