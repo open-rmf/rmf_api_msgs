@@ -1,0 +1,24 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_favorite.json",
+    "title": "Task Favorite",
+    "description": "A favorite task",
+    "type": "object",
+    "properties": {
+      "id": { "type": "string" },
+      "name": { "description": "The favorite name", "type": "string" },
+      "unix_millis_earliest_start_time": { "type": "integer" },
+      "priority": { "type": "object" },
+      "category": { "type": "string" },
+      "description": {
+        "description": "A description of the task. Task properties by category",
+        "anyOf": [
+          { "type": "object" },
+          { "type": "array" },
+          { "type": "string" }
+        ]
+      },
+      "user": { "type": "string" }
+    }
+  }
+  
