@@ -11,12 +11,7 @@
       "priority": { "type": "object" },
       "category": { "type": "string" },
       "description": {
-        "description": "A description of the task. Task properties by category",
-        "anyOf": [
-          { "type": "object" },
-          { "type": "array" },
-          { "type": "string" }
-        ]
+        "description": "A description of the task. Task properties by category"
       },
       "user": { "type": "string" }
     },
