@@ -22,7 +22,6 @@
       "required": ["group", "name"]
     },
     "status": { "$ref": "#/$defs/status" },
-    "unix_millis_request_time": { "type": "integer" },
     "dispatch": { "$ref": "#/$defs/dispatch" },
     "phases": {
       "description": "A dictionary of the states of the phases of the task. The keys (property names) are phase IDs, which are integers.",
@@ -117,6 +116,7 @@
           "type": "string"
         },
         "unix_millis_earliest_start_time": { "type": "integer" },
+        "unix_millis_request_time": { "type": "integer" },
         "priority": {
           "description": "Priority information about this task",
           "anyOf": [
