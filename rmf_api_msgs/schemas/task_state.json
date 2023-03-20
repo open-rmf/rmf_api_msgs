@@ -128,6 +128,10 @@
           "description": "Information about how and why this task was booked",
           "type": "array",
           "items": { "type": "string" }
+        },
+        "initiator": {
+          "description": "Task initiator",
+          "type": "string"
         }
       },
       "required": ["id"]
