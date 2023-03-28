@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_estimate_response.json",
+  "title": "Task Estimate Response",
+  "description": "Response to a robot task estimate request",
+  "type": "object",
+  "properties": {
+    "deployment_time": {
+      "description": "Time task can be deployeed in unix time milliseconds",
+      "type": "integer"
+    },
+    "finish_time": {
+      "description": "Time the task is estimated to finish in unix time milliseconds",
+      "type": "integer"
+    },
+    "duration": {
+      "description": "The estimated duration of the task in milliseconds",
+      "type": "integer"
+    },
+    "state": {"$ref": "#/$defs/state"}
+  },
+  "required": ["deployment_time", "finish_time", "duration", "state"],
+  "$defs": {
+    "state": {
+      "description": "State of the robot",
+      "type": "object",
+      "properties": {
+        "waypoint": {
+          "description": "RMF navigation graph waypoint index",
+          "type": "integer"
+        },
+        "orientation": {
+          "description": "Orientation of the robot in radians.",
+          "type": "number"
+        },
+        "battery_soc": {
+          "description": "Battery percentage of the robot.",
+          "type": "number"
+        },
+        "time": {
+          "description": "Unix time from epoch in milliseconds.",
+          "type": "integer"
+        }
+      },
+      "required": ["waypoint", "orientation", "battery_soc"]
+    }
+  }
+}
