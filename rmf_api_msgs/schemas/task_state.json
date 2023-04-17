@@ -116,6 +116,7 @@
           "type": "string"
         },
         "unix_millis_earliest_start_time": { "type": "integer" },
+        "unix_millis_request_time": { "type": "integer" },
         "priority": {
           "description": "Priority information about this task",
           "anyOf": [
@@ -127,6 +128,10 @@
           "description": "Information about how and why this task was booked",
           "type": "array",
           "items": { "type": "string" }
+        },
+        "initiator": {
+          "description": "Task initiator",
+          "type": "string"
         }
       },
       "required": ["id"]
