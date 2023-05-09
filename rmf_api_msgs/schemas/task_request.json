@@ -26,7 +26,7 @@
       "type": "array",
       "items": { "type": "string" }
     },
-    "initiator": {
+    "requester": {
       "description": "(Optional) An identifier for the entity that requested this task",
       "type": "string"
     }
