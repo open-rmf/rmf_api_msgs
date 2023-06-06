@@ -5,7 +5,7 @@
   <version>0.0.1</version>
   <description>RMF API msgs definition</description>
   <maintainer email="grey@openrobotics.org">Grey</maintainer>
-  <maintainer email="youliang@openrobotics.org">You Liang</maintainer>
+  <maintainer email="yadunund@openrobotics.org">Yadunund</maintainer>
   <license>Apache License 2.0</license>
 
   <depend>nlohmann-json-dev</depend>
