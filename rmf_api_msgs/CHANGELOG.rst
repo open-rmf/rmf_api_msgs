@@ -2,8 +2,8 @@
 Changelog for package rmf_api_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.0 (2023-06-06)
+------------------
 * Update maintainer
 * Switch to rst changelog (`#36 <https://github.com/open-rmf/rmf_api_msgs/pull/36>`_)
 * Fix typo in title of fleet_log.json (`#26 <https://github.com/open-rmf/rmf_api_msgs/pull/26>`_)
