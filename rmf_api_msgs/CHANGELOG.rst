@@ -2,6 +2,11 @@
 Changelog for package rmf_api_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.1 (2023-06-30)
+------------------
+* Added ``unix_millis_request_time`` and ``requester`` fields to ``task_request.json`` and ``task_state.json`` (`#35 <https://github.com/open-rmf/rmf_api_msgs/pull/35>`_)
+* Contributors: Aaron Chong, César Rolón
+
 0.2.0 (2023-06-08)
 ------------------
 
