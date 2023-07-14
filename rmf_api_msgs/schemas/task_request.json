@@ -9,6 +9,10 @@
       "description": "(Optional) The earliest time that this task may start",
       "type": "integer"
     },
+    "unix_millis_request_time": {
+      "description": "(Optional) The time that this request was initiated",
+      "type": "integer"
+    },
     "priority": {
       "description": "(Optional) The priority of this task. This must match a priority schema supported by a fleet.",
       "type": "object"
@@ -21,6 +25,10 @@
       "description": "Labels to describe the purpose of the task dispatch request",
       "type": "array",
       "items": { "type": "string" }
+    },
+    "requester": {
+      "description": "(Optional) An identifier for the entity that requested this task",
+      "type": "string"
     }
   },
   "required": ["category", "description"]
