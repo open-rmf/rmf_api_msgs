@@ -29,6 +29,10 @@
     "requester": {
       "description": "(Optional) An identifier for the entity that requested this task",
       "type": "string"
+    },
+    "fleet_name": {
+      "description": "The fleet to perform the task.",
+      "type": "string"
     }
   },
   "required": ["category", "description"]
