@@ -31,7 +31,7 @@
       "type": "string"
     },
     "fleet_name": {
-      "description": "The fleet to perform the task.",
+      "description": "(Optional) The name of the fleet that should perform this task. If specified, other fleets will not bid for this task.",
       "type": "string"
     }
   },
