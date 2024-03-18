@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_schedule_list_response.json",
+  "title": "List Task Schedules Response",
+  "description": "Response with a list of scheduled tasks",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Indicate that this is a task schedule list response",
+      "type": "string",
+      "constant": "task_schedule_list_response"
+    },
+    "schedules": {
+      "description": "List of task schedules with their state",
+      "type": "array",
+      "items": {
+        "scheduled_task": { "$ref": "task_schedule.json" },
+        "state": {
+          "description": "State of the schedule",
+          "type": "string",
+          "enum": ["created", "started", "finished", "cancelled", "failed"]
+        },
+        "unix_millis_last_modified": { "type": "integer"},
+        "unix_millis_last_ran": { "type": "integer"},
+        "unix_millis_next_run": { "type": "integer"}
+      }
+    }
+  },
+  "required": ["type", "schedule"]
+}
