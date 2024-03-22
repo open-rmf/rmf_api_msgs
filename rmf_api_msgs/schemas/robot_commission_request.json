@@ -1,0 +1,28 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/robot_commission_request.json",
+    "title": "Robot Commission Request",
+    "description": "Request for changing the allowed robot commissioning behavior",
+    "type": "object",
+    "properties": {
+      "robot": { "type": "string" },
+      "fleet": { "type": "string" },
+      "commission": { "$ref": "robot_commission.json" },
+      "reassign_dispatched_tasks": {
+        "description": "Reassigns tasks already dispatched to this robot to other robots if turning off dispatch_tasks was requested",
+        "type": "boolean",
+        "enum": [false]
+      },
+      "cancel_direct_tasks": {
+        "description": "Cancels tasks already directly dispatched to this robot if turning off direct_tasks was requested",
+        "type": "boolean",
+        "enum": [false]
+      },
+      "cancel_idle_tasks": {
+        "description": "Cancels idle tasks that the robot is already performing if turning off idle_tasks was requested",
+        "type": "boolean",
+        "enum": [false]
+      }
+    },
+    "required": ["robot", "fleet", "commission"]
+  }

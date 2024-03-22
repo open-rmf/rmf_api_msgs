@@ -1,0 +1,25 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/robot_commission.json",
+    "title": "Robot Commission",
+    "description": "Describes allowed robot commissioning behavior",
+    "type": "object",
+    "properties": {
+      "dispatch_tasks": {
+        "description": "Allow tasks to be dispatched by RMF via the auction/bidding system",
+        "type": "boolean",
+        "enum": [false]
+      },
+      "direct_tasks": {
+        "description": "Allow tasks to be dispatched directly to the robot",
+        "type": "boolean",
+        "enum": [false]
+      },
+      "idle_tasks": {
+        "description": "Allow idle tasks to be performed",
+        "type": "boolean",
+        "enum": [false]
+      }
+    },
+    "required": ["dispatch_tasks", "direct_tasks", "idle_tasks"]
+  }
