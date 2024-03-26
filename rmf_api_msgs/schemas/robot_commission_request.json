@@ -8,7 +8,7 @@
     "type": {
       "description": "Indicate that this is a robot commission request",
       "type": "string",
-      "constant": "commission_request"
+      "constant": "robot_commission_request"
     },
     "robot": {
       "description": "The name of the robot",
