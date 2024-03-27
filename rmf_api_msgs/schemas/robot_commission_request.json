@@ -18,24 +18,7 @@
       "description": "The fleet the robot belongs to",
       "type": "string"
     },
-    "commission": {
-      "description": "Describe the requested commission for this robot",
-      "type": "object",
-      "properties": {
-        "dispatch_tasks": {
-          "description": "Should the robot accept dispatched tasks, true/false. Leave unset to not change the robot's current value.",
-          "type": "boolean"
-        },
-        "direct_tasks": {
-          "description": "Should the robot accept direct task requests, true/false. Leave unset to not change the robot's current value.",
-          "type": "boolean"
-        },
-        "idle_behavior": {
-          "description": "Should the robot perform its idle behavior, true/false. Leave unset to not change the robot's current value.",
-          "type": "boolean"
-        }
-      }
-    },
+    "commission": { "$ref": "commission.json" },
     "reassign_tasks": {
       "description": "Should the tasks of the decommissioned robot be reassigned to other robots? If unset, it will be treated as true.",
       "type": "boolean"
