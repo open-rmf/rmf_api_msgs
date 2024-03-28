@@ -4,9 +4,11 @@
   "title": "Robot Commission Response",
   "description": "Response to a robot commission request",
   "type": "object",
-  "commission": { "$ref": "#/$defs/result" },
-  "pending_dispatch_tasks_policy": { "$ref": "#/$defs/result" },
-  "pending_direct_tasks_policy": { "$ref": "#/$defs/result" },
+  "properties": {
+    "commission": { "$ref": "#/$defs/result" },
+    "pending_dispatch_tasks_policy": { "$ref": "#/$defs/result" },
+    "pending_direct_tasks_policy": { "$ref": "#/$defs/result" }
+  },
   "$defs": {
     "result": {
       "oneOf": [
