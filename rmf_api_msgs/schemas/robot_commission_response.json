@@ -9,6 +9,7 @@
     "pending_dispatch_tasks_policy": { "$ref": "#/$defs/result" },
     "pending_direct_tasks_policy": { "$ref": "#/$defs/result" }
   },
+  "required": ["commission"],
   "$defs": {
     "result": {
       "oneOf": [
