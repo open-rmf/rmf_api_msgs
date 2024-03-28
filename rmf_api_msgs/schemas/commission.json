@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/commission.json",
+  "title": "Commission",
+  "description": "Describe the commission of a robot. Used in a request, this describes desired changes to the current commission.",
+  "type": "object",
+  "properties": {
+    "dispatch_tasks": {
+      "description": "Should the robot accept dispatched tasks, true/false. When used in a request, leave this unset to not change the robot's current value.",
+      "type": "boolean"
+    },
+    "direct_tasks": {
+      "description": "Should the robot accept direct task requests, true/false. When used in a request, leave this unset to not change the robot's current value.",
+      "type": "boolean"
+    },
+    "idle_behavior": {
+      "description": "Should the robot perform its idle behavior, true/false. When used in a request, leave this unset to not change the robot's current value.",
+      "type": "boolean"
+    }
+  }
+}
