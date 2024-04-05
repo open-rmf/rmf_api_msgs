@@ -6,7 +6,7 @@
   "type": "object",
   "properties": {
     "type": {
-      "description": "Indicate that this is a task dispatch request",
+      "description": "Indicate that this is a direct task request",
       "type": "string",
       "constant": "robot_task_request"
     },
