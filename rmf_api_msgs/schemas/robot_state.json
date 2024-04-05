@@ -27,7 +27,8 @@
       "description": "A list of issues with the robot that operators need to address",
       "type": "array",
       "items": { "$ref": "#/$defs/issue" }
-    }
+    },
+    "commission": { "$ref": "commission.json" }
   },
   "$defs": {
     "issue": {
