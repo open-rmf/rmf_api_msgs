@@ -28,7 +28,23 @@
       "type": "array",
       "items": { "$ref": "#/$defs/issue" }
     },
-    "commission": { "$ref": "commission.json" }
+    "commission": { "$ref": "commission.json" },
+    "mutex_groups": {
+      "description": "Information about the mutex groups that this robot is interacting with",
+      "type": "object",
+      "properties": {
+        "locked": {
+          "description": "A list of mutex groups that this robot has currently locked",
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "requesting": {
+          "description": "A list of the mutex groups that this robot is currently requesting but has not lockd yet",
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
   },
   "$defs": {
     "issue": {
