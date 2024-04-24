@@ -17,7 +17,7 @@ function(rmf_api_generate_schema_headers)
   )
 
   string(TOUPPER ${_ARG_PACKAGE} upper_package_name)
-  file(GLOB_RECURSE schema_files "${_ARG_SCHEMAS_DIR}/*.json")
+  file(GLOB_RECURSE schema_files CONFIGURE_DEPENDS "${_ARG_SCHEMAS_DIR}/*.json")
 
   foreach(file_name ${schema_files})
     get_filename_component(schema_name ${file_name} NAME_WE)
