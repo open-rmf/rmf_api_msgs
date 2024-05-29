@@ -56,7 +56,7 @@
           "type": "integer"
         },
         "labels": {
-          "description": "Labels to describe the cancel request, items can be a single value like `dashboard` or a key-value pair like `via=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
+          "description": "Labels to describe the cancel request, items can be a single value like `dashboard` or a key-value pair like `app=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
           "type": "array",
           "items": { "type": "string" }
         }
@@ -72,7 +72,7 @@
           "type": "integer"
         },
         "labels": {
-          "description": "Labels to describe the kill request, items can be a single value like `dashboard` or a key-value pair like `via=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
+          "description": "Labels to describe the kill request, items can be a single value like `dashboard` or a key-value pair like `app=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
           "type": "array",
           "items": { "type": "string" }
         }
@@ -125,7 +125,7 @@
           ]
         },
         "labels": {
-          "description": "Information about how and why this task was booked, items can be a single value like `dashboard` or a key-value pair like `via=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
+          "description": "Information about how and why this task was booked, items can be a single value like `dashboard` or a key-value pair like `app=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
           "type": "array",
           "items": { "type": "string" }
         },
@@ -219,7 +219,7 @@
           "type": "integer"
         },
         "labels": {
-          "description": "Labels to describe the purpose of the interruption, items can be a single value like `dashboard` or a key-value pair like `via=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
+          "description": "Labels to describe the purpose of the interruption, items can be a single value like `dashboard` or a key-value pair like `app=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
           "type": "array",
           "items": { "type": "string" }
         },
@@ -232,7 +232,7 @@
               "type": "integer"
             },
             "labels": {
-              "description": "Labels to describe the resume request, items can be a single value like `dashboard` or a key-value pair like `via=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
+              "description": "Labels to describe the resume request, items can be a single value like `dashboard` or a key-value pair like `app=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
               "type": "array",
               "items": { "type": "string" }
             }
@@ -251,7 +251,7 @@
           "type": "integer"
         },
         "labels": {
-          "description": "Labels to describe the purpose of the skip request, items can be a single value like `dashboard` or a key-value pair like `via=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
+          "description": "Labels to describe the purpose of the skip request, items can be a single value like `dashboard` or a key-value pair like `app=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
           "type": "array",
           "items": { "type": "string" }
         },
@@ -264,7 +264,7 @@
               "type": "integer"
             },
             "labels": {
-              "description": "Labels to describe the undo skip request, items can be a single value like `dashboard` or a key-value pair like `via=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
+              "description": "Labels to describe the undo skip request, items can be a single value like `dashboard` or a key-value pair like `app=dashboard`, in the case of a single value, it will be interpreted as a key-value pair with `null` value.",
               "type": "array",
               "items": { "type": "string" }
             }
