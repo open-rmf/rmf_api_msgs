@@ -2,8 +2,8 @@
 Changelog for package rmf_api_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.0 (2024-06-01)
+------------------
 * use CONFIGURE_DEPENDS (`#53 <https://github.com/open-rmf/rmf_api_msgs/pull/53>`_)
 * Add mutex group information to robot_state (`#49 <https://github.com/open-rmf/rmf_api_msgs/pull/49>`_)
 * Introduce schemas for robot commission request (`#48 <https://github.com/open-rmf/rmf_api_msgs/pull/48>`_)
