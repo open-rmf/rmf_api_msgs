@@ -2,6 +2,9 @@
 Changelog for package rmf_api_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.4.0 (2024-06-12)
+------------------
+
 0.3.0 (2024-06-01)
 ------------------
 * use CONFIGURE_DEPENDS (`#53 <https://github.com/open-rmf/rmf_api_msgs/pull/53>`_)
