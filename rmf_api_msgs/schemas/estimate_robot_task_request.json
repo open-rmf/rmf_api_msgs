@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/task_estimate_request.json",
-  "title": "Task Estimate Request",
+  "$id": "https://raw.githubusercontent.com/open-rmf/rmf_api_msgs/main/rmf_api_msgs/schemas/estimate_robot_task_request.json",
+  "title": "Estimate Robot Task Request",
   "description": "Request to estimate a task for specific robot",
   "type": "object",
   "properties": {
     "type": {
-      "description": "Indicate that this is a task dispatch request",
+      "description": "Indicate that this is a estimate robot task request",
       "type": "string",
-      "constant": "task_estimate_request"
+      "constant": "estimate_robot_task_request"
     },
     "robot": {
       "description": "The name of the robot",
@@ -18,19 +18,14 @@
       "description": "The fleet the robot belongs to",
       "type": "string"
     },
-    "request": {"$ref": "#/$defs/request"}
-  },
-  "required": ["type", "robot", "fleet"],
-  "$defs": {
-    "request": {
-      "description": "An estimate request",
-      "properties": {
-        "task_request": { "$ref": "task_request.json" },
-        "state": {"$ref": "#/$defs/state"}
-      },
-      "required": ["task_request"]
+    "initial_state": {
+      "description": "If not provided, end state of robot's direct task requests will be used by planner.",
+      "$ref": "#/$defs/state"
     },
-
+    "request": {"$ref": "task_request.json"}
+  },
+  "required": ["type", "robot", "fleet", "request"],
+  "$defs": {
     "state": {
       "description": "State of the robot",
       "type": "object",
