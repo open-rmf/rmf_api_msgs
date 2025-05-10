@@ -2,6 +2,12 @@
 Changelog for package rmf_api_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.0 (2025-05-09)
+------------------
+* Task estimation schemas
+* Document how labels should be formatted (`#54 <https://github.com/open-rmf/rmf_api_msgs/issues/54>`_)
+* Contributors: Teo Koon Peng, lkw303
+
 0.4.0 (2024-06-12)
 ------------------
 
