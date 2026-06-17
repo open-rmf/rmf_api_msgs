@@ -34,8 +34,13 @@ schema = schemas.task_state()
 
 To generate the data models based on the schemas, install `datamodel-code-generator`
 
+On systems older than ubuntu lyrical:
 ```bash
 pip3 install datamodel-code-generator
+```
+On systems newer than ubuntu lyrical on can use apt.
+```bash
+sudo apt install datamodel-code-generator
 ```
 
 Recompile with [colcon](https://colcon.readthedocs.io/en/released/)
