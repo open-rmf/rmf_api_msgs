@@ -34,11 +34,11 @@ schema = schemas.task_state()
 
 To generate the data models based on the schemas, install `datamodel-code-generator`
 
-On systems older than ubuntu lyrical:
+On systems older than ubuntu resolute:
 ```bash
 pip3 install datamodel-code-generator
 ```
-On systems newer than ubuntu lyrical on can use apt.
+On systems newer than ubuntu resolute on can use apt.
 ```bash
 sudo apt install datamodel-code-generator
 ```
