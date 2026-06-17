@@ -40,7 +40,7 @@ pip3 install datamodel-code-generator
 ```
 On systems newer than ubuntu resolute use apt.
 ```bash
-sudo apt install datamodel-code-generator
+sudo apt install python3-datamodel-code-generator
 ```
 
 Recompile with [colcon](https://colcon.readthedocs.io/en/released/)
