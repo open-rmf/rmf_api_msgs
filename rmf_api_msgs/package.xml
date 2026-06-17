@@ -11,6 +11,7 @@
   <depend>nlohmann-json-dev</depend>
   <depend>python3-jinja2</depend>
   <depend>python3-jsonschema</depend>
+  <build_depend>datamodel-code-generator</build_depend>
   <buildtool_depend>ament_cmake</buildtool_depend>
 
 <!--<exec_depend>python3-pydantic</exec_depend>-->
