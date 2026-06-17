@@ -38,7 +38,7 @@ On systems older than ubuntu resolute:
 ```bash
 pip3 install datamodel-code-generator
 ```
-On systems newer than ubuntu resolute on can use apt.
+On systems newer than ubuntu resolute use apt.
 ```bash
 sudo apt install datamodel-code-generator
 ```
