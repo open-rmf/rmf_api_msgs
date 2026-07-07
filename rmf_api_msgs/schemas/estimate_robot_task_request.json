@@ -22,7 +22,13 @@
       "description": "If not provided, end state of robot's direct task requests will be used by planner.",
       "$ref": "#/$defs/state"
     },
-    "request": {"$ref": "task_request.json"}
+    "request": {
+      "description": "An estimate robot task request always targets exactly one robot, so its nested fleet_name (if given) must be a single string, not an array.",
+      "allOf": [
+        { "$ref": "task_request.json" },
+        { "properties": { "fleet_name": { "type": "string" } } }
+      ]
+    }
   },
   "required": ["type", "robot", "fleet", "request"],
   "$defs": {
