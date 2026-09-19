@@ -2,6 +2,11 @@
 Changelog for package rmf_api_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.1 (2026-09-18)
+------------------
+* Allow "fleet_name" to be either string or string array in "task_request" (`#64 <https://github.com/open-rmf/rmf_api_msgs/issues/64>`_)
+* Contributors: Leong Teck
+
 0.6.0 (2025-06-09)
 ------------------
 
