@@ -2,8 +2,8 @@
 Changelog for package rmf_api_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.1 (2026-11-13)
+------------------
 * bump cmake version (`#68 <https://github.com/open-rmf/rmf_api_msgs/issues/68>`_)
 * Contributors: Aaron Chong
 
